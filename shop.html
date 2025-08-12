@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop | Bières la Doncourt</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Bières la Doncourt</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="shop.html" class="active">Shop</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#" id="cart-toggle">🛒 Cart (<span id="cart-count">0</span>)</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="shop-header">
+    <h2>Explore Our Brews</h2>
+    <p>Crafted for flavor. Loved by rebels. 🍻</p>
+  </section>
+
+  <section class="product-grid">
+    <div class="product-card">
+      <img src="blonde.jpg" alt="La Blonde" />
+      <h3>La Blonde</h3>
+      <p>Light, crisp, and refreshing. 5.2% ABV</p>
+      <span class="price">€3.50</span>
+      <button onclick="addToCart('La Blonde', 3.5)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="triple-dark.jpg" alt="Triple Dark" />
+      <h3>Triple Dark</h3>
+      <p>Bold, malty, and intense. 8.0% ABV</p>
+      <span class="price">€4.20</span>
+      <button onclick="addToCart('Triple Dark', 4.2)">Add to Cart</button>
+    </div>
+    <div class="product-card">
+      <img src="ipa.jpg" alt="Citrus IPA" />
+      <h3>Citrus IPA</h3>
+      <p>Hoppy with a citrus twist. 6.5% ABV</p>
+      <span class="price">€3.80</span>
+      <button onclick="addToCart('Citrus IPA', 3.8)">Add to Cart</button>
+    </div>
+  </section>
+
+  <aside id="cart-sidebar">
+    <h3>Your Cart</h3>
+    <ul id="cart-items"></ul>
+    <p>Total: €<span id="cart-total">0.00</span></p>
+    <button onclick="checkout()">Checkout</button>
+  </aside>
+
+  <footer>
+    <p>&copy; 2025 Bières la Doncourt. Drink responsibly.</p>
+  </footer>
+
+  <script src="shop.js"></script>
+</body>
+</html>
