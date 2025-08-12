@@ -30,7 +30,6 @@
       margin: 0 auto;
       padding: 0 1.2rem;
     }
-
     /* --- MENU BAR --- */
     .zyth-menu-bar {
       width: 100vw;
@@ -152,121 +151,46 @@
       pointer-events: none;
     }
 
-    .zyth-hero-flex-row {
-      display: flex;
+    /* HERO FLEX NEW LAYOUT */
+    .zyth-hero-flex-row.hero-no-testimonials {
       flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 4vw;
+      margin-top: 8vw;
+      width: 100%;
+      position: relative;
+      z-index: 2;
+    }
+    .zyth-hero-headline-col {
+      display: flex;
+      flex-direction: column;
       align-items: flex-end;
       justify-content: center;
-      gap: 1vw;
-      width: 100%;
-      z-index: 2;
-      position: relative;
-      margin-top: 7vw;
+      flex: 1 1 0;
+      min-width: 260px;
     }
     .zyth-hero-headline {
       font-family: 'Montserrat', sans-serif;
-      font-size: 6vw;
+      font-size: 5vw;
       font-weight: 900;
       text-transform: uppercase;
       color: var(--navy);
       letter-spacing: 0.01em;
       line-height: 1.05;
-      max-width: 730px;
+      max-width: 600px;
       text-shadow: 0 2px 18px #ffd03533, 0 1px 0 #fffbe9;
-      margin: 0 0 2vw 0;
-      flex: 1 1 0;
-      text-align: right;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-end;
       background: rgba(255,255,255,0.78);
-      padding: 1vw 2vw 1vw 0;
+      padding: 1vw 2vw 1vw 0.5vw;
       border-radius: 32px 0 0 32px;
       box-shadow: 0 6px 40px #ffd03522;
+      margin-bottom: 3vw;
+      text-align: right;
     }
-    .zyth-hero-bottle {
-      position: relative;
-      z-index: 3;
-      width: 400px;
-      max-width: 36vw;
-      max-height: 110vh;
-      transform: rotate(22deg);
-      filter: drop-shadow(0 8px 32px #ffa82d99);
-      pointer-events: none;
-      user-select: none;
-      margin-left: 1vw;
-      margin-right: 0;
-      margin-bottom: 0;
-      flex: 0 0 auto;
-      align-self: flex-end;
-      background: none;
-    }
-    @media (max-width: 1200px) {
-      .zyth-hero-headline { font-size: 8vw; max-width: 420px;}
-      .zyth-hero-bottle { width: 240px; max-width: 44vw;}
-      .zyth-hero-flex-row { margin-top: 8vw; gap: 2vw;}
-    }
-    @media (max-width: 950px) {
-      .zyth-hero-flex-row { flex-direction: column; align-items: center; justify-content: center; gap: 2vw; margin-top: 6vw;}
-      .zyth-hero-headline { text-align: center; align-items: center; font-size: 8vw; margin-bottom: 1vw; border-radius: 32px;}
-      .zyth-hero-bottle { margin: 0 auto 0 auto; display: block; width: 180px; max-width: 80vw;}
-    }
-    @media (max-width: 700px) {
-      .zyth-hero-headline { font-size: 11vw; }
-      .zyth-hero-bottle { width: 100px; max-width: 70vw;}
-      .zyth-hero-flex-row { margin-top: 4vw;}
-    }
-
-    .zyth-hero-testimonial {
-      position: absolute;
-      z-index: 4;
-      color: var(--navy);
-      background: rgba(255, 230, 168, 0.97);
-      border-radius: 13px;
-      font-size: 1.07rem;
-      padding: 1.1em 1.4em 1em 1.4em;
-      max-width: 320px;
-      box-shadow: 0 6px 32px #ffd03555;
-      border: 2px solid #ffd035;
-      font-family: 'Roboto', Arial, sans-serif;
-      line-height: 1.45;
+    .zyth-hero-btn-row {
       display: flex;
-      gap: 0.7em;
-      align-items: flex-start;
-    }
-    .zyth-hero-testimonial.left {
-      left: 3vw;
-      bottom: 7vh;
-    }
-    .zyth-hero-testimonial.right {
-      right: 5vw;
-      top: 13vh;
-    }
-    .zyth-hero-testimonial .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 0.5em;
-      border: 2px solid var(--hop-green);
-      background: #fff;
-    }
-    .zyth-hero-testimonial .t-meta {
-      font-size: 0.96em;
-      opacity: 0.63;
-      margin-top: 0.5em;
-    }
-
-    .zyth-hero-discover-btn-below {
-      position: absolute;
-      left: 50%;
-      top: 55vh;
-      transform: translateX(-50%);
-      z-index: 5;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
+      justify-content: flex-end;
+      width: 100%;
     }
     .zyth-hero-btn {
       background: linear-gradient(90deg, #ffd035 0%, #ffa82d 60%, #ff9500 100%);
@@ -318,17 +242,44 @@
       transform: translateY(-3px) scale(1.06);
       text-shadow: 0px 1px 3px #ffd03588;
     }
+    .zyth-hero-bottles-group {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      gap: 2vw;
+      flex: 1 1 0;
+      justify-content: flex-start;
+      min-width: 360px;
+    }
+    .zyth-hero-bottle.big-bottle {
+      width: 180px;
+      max-width: 22vw;
+      height: auto;
+      filter: drop-shadow(0 8px 32px #ffa82d99);
+      background: none;
+      border-radius: 18px;
+      display: block;
+      transition: transform 0.2s;
+    }
+    .zyth-hero-bottle.big-bottle:hover {
+      transform: translateY(-10px) scale(1.07) rotate(-2deg);
+    }
     @media (max-width: 1100px) {
-      .zyth-hero-discover-btn-below { left: 50%; top: 59vh;}
+      .zyth-hero-flex-row.hero-no-testimonials { gap: 2vw; }
+      .zyth-hero-headline { font-size: 7vw; max-width: 340px;}
+      .zyth-hero-bottle.big-bottle { width: 110px; }
     }
-    @media (max-width: 950px) {
-      .zyth-hero-discover-btn-below { position: static; transform: none; margin: 2.8rem auto 0 auto; width: 100%; justify-content: center; }
+    @media (max-width: 900px) {
+      .zyth-hero-flex-row.hero-no-testimonials { flex-direction: column; align-items: center; gap: 3vw;}
+      .zyth-hero-headline-col { align-items: center; }
+      .zyth-hero-headline { text-align: center; align-items: center; }
+      .zyth-hero-bottles-group { justify-content: center; }
     }
-    @media (max-width: 700px) {
-      .zyth-hero-discover-btn-below { position: static; margin: 1.8rem auto 0 auto; width: 95vw; justify-content: center;}
-      .zyth-hero-btn { font-size: 1.14rem; padding: 0.7em 1.3em;}
+    @media (max-width: 600px) {
+      .zyth-hero-headline { font-size: 10vw; max-width: 90vw; }
+      .zyth-hero-bottle.big-bottle { width: 70px; }
+      .zyth-hero-bottles-group { gap: 1vw; }
     }
-
     .hero, main, section {
       background: #fffdf8;
       color: var(--navy);
@@ -336,142 +287,7 @@
       box-shadow: 0 2px 14px #ffd03510;
       margin-top: 1vw;
     }
-    .hero-title {
-      color: var(--navy);
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 800;
-      margin: 2vw 0 1vw 0;
-      letter-spacing: 0.06em;
-    }
-    .hero-subtitle {
-      color: var(--amber);
-      font-size: 1.22rem;
-      font-family: 'Roboto', Arial, sans-serif;
-      line-height: 1.5;
-      margin-bottom: 2vw;
-      font-weight: 600;
-    }
-    ::selection {
-      background: #ffd03555;
-    }
-    a {
-      transition: color 0.15s;
-    }
-
-    .zyth-section-bright {
-      background: linear-gradient(120deg, #fffdf8 0%, #ffe7a8 60%, #fffbe9 100%);
-      padding: 3vw 0 4vw 0;
-    }
-    .zyth-section-box {
-      background: rgba(255, 255, 255, 0.98);
-      border-radius: 36px;
-      box-shadow: 0 8px 32px #ffd03533;
-      padding: 2vw 2vw 3vw 2vw;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .zyth-section-title {
-      text-align: center;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 2.7rem;
-      font-weight: 900;
-      color: #15223a;
-      margin-bottom: 0.3em;
-      letter-spacing: 0.03em;
-    }
-    .zyth-section-subtitle {
-      text-align: center;
-      color: #ff9500;
-      font-size: 1.25rem;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      margin-bottom: 2.2em;
-      line-height: 1.4;
-    }
-    .zyth-orange { color: #ffa82d; }
-
-    .zyth-odyssee-features-grid {
-      display: flex;
-      flex-direction: row;
-      gap: 2.5vw;
-      justify-content: space-between;
-      align-items: stretch;
-    }
-    .zyth-feature-col {
-      display: flex;
-      flex-direction: column;
-      gap: 1.6em;
-      flex: 1 1 0;
-    }
-    .zyth-feature-center {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      flex: 0 0 auto;
-      margin: 0 1vw;
-    }
-    .zyth-bottle-feature {
-      width: 125px;
-      max-width: 20vw;
-      filter: drop-shadow(0 6px 24px #ffa82d66);
-      transform: rotate(-8deg) scale(1.09);
-      margin: 1em 0;
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 10px #ffd03533;
-    }
-
-    .zyth-feature-card {
-      background: #fffbe9e6;
-      border-radius: 18px;
-      box-shadow: 0 2px 8px #ffd03522;
-      padding: 1.2em 1em 1.2em 1em;
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 1em;
-      transition: box-shadow 0.18s, transform 0.18s;
-      border-left: 6px solid #ffd035;
-      margin-bottom: 0.2em;
-    }
-    .zyth-feature-card:hover {
-      box-shadow: 0 6px 24px #ffa82d44;
-      transform: translateY(-4px) scale(1.03);
-    }
-    .zyth-feature-icon {
-      font-size: 2.1em;
-      flex: 0 0 auto;
-      margin-top: 0.1em;
-      filter: drop-shadow(0 1px 4px #ffd03599);
-    }
-    .zyth-feature-title {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 800;
-      font-size: 1.22em;
-      margin-bottom: 0.18em;
-      color: #17264B;
-      background: linear-gradient(90deg, #ffd035 70%, #fffbe9 100%);
-      display: inline-block;
-      padding: 0.04em 0.4em 0.04em 0.1em;
-      border-radius: 8px;
-    }
-    .zyth-feature-desc {
-      color: #222;
-      font-size: 1.03em;
-      font-family: 'Roboto', Arial, sans-serif;
-    }
-    @media (max-width: 900px) {
-      .zyth-odyssee-features-grid { flex-direction: column; gap: 2vw; }
-      .zyth-feature-center { margin: 2vw 0; }
-      .zyth-bottle-feature { margin: 2em auto; }
-    }
-    @media (max-width: 600px) {
-      .zyth-section-title { font-size: 1.6rem;}
-      .zyth-section-box { padding: 3vw 3vw 4vw 3vw;}
-      .zyth-bottle-feature { width: 80px; }
-    }
+    /* ... rest of your styles for the rest of the page ... */
   </style>
 </head>
 <body>
@@ -494,9 +310,8 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION (Brewery Background) -->
- <!-- HERO SECTION (No testimonials, 3 big bottles on the right, headline and button on the left) -->
-<section class="zyth-hero-2025">
+  <!-- HERO SECTION (3 big bottles right, headline & button left, no testimonials) -->
+ <section class="zyth-hero-2025">
   <div class="zyth-hero-bg-blur"></div>
   <div class="zyth-hero-flex-row hero-no-testimonials">
     <div class="zyth-hero-headline-col">
@@ -507,146 +322,76 @@
         <a href="#shop" class="zyth-hero-btn">Découvrir notre gamme</a>
       </div>
     </div>
-    <div class="zyth-hero-bottles-group">
-      <img class="zyth-hero-bottle big-bottle" src="la-doncourt-blondinette.png" alt="Bouteille La Doncourt Blondinette">
-      <img class="zyth-hero-bottle big-bottle" src="doncourt-passion.png" alt="Bouteille La Doncourt Passion">
-      <img class="zyth-hero-bottle big-bottle" src="doncourt-ipa.png" alt="Bouteille La Doncourt IPA">
+    <div class="zyth-hero-bottles-group lager-style">
+      <img class="zyth-hero-bottle side-bottle" src="doncourt-passion.png" alt="Bouteille La Doncourt Passion">
+      <img class="zyth-hero-bottle center-bottle" src="la-doncourt-blondinette.png" alt="Bouteille La Doncourt Blondinette">
+      <img class="zyth-hero-bottle side-bottle" src="doncourt-ipa.png" alt="Bouteille La Doncourt IPA">
     </div>
   </div>
 </section>
 
 <style>
-.zyth-hero-flex-row.hero-no-testimonials {
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 4vw;
-  margin-top: 8vw;
-  width: 100%;
-  position: relative;
-  z-index: 2;
-}
-.zyth-hero-headline-col {
+/* ...keep all your previous styles, then add/replace with the following... */
+
+.zyth-hero-bottles-group.lager-style {
   display: flex;
-  flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  flex: 1 1 0;
-  min-width: 260px;
-}
-.zyth-hero-headline {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 5vw;
-  font-weight: 900;
-  text-transform: uppercase;
-  color: var(--navy);
-  letter-spacing: 0.01em;
-  line-height: 1.05;
-  max-width: 600px;
-  text-shadow: 0 2px 18px #ffd03533, 0 1px 0 #fffbe9;
-  background: rgba(255,255,255,0.78);
-  padding: 1vw 2vw 1vw 0.5vw;
-  border-radius: 32px 0 0 32px;
-  box-shadow: 0 6px 40px #ffd03522;
-  margin-bottom: 3vw;
-  text-align: right;
-}
-.zyth-hero-btn-row {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-.zyth-hero-btn {
-  background: linear-gradient(90deg, #ffd035 0%, #ffa82d 60%, #ff9500 100%);
-  color: var(--navy);
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 1.5rem;
-  border: none;
-  border-radius: 50px;
-  padding: 1.09em 3em;
-  box-shadow: var(--shadow);
-  cursor: pointer;
-  text-decoration: none;
-  transition: 
-    background 0.20s, 
-    color 0.20s, 
-    box-shadow 0.18s,
-    transform 0.14s;
-  letter-spacing: 0.04em;
-  outline: none;
+  gap: 0;
   position: relative;
-  overflow: hidden;
-  text-shadow: 0px 2px 6px #fff8;
-  border: 2px solid #ff9500;
-  margin-top: 0;
+  min-width: 400px;
+  margin-left: 2vw;
 }
-.zyth-hero-btn:after {
-  content: "";
-  position: absolute;
-  left: 30%;
-  top: 0;
-  width: 60%;
-  height: 100%;
-  background: linear-gradient(120deg, #fffbe9cc 10%, transparent 70%);
-  opacity: 0.7;
-  pointer-events: none;
-  transform: skewX(-35deg) translateX(-120%);
-  transition: transform 0.45s cubic-bezier(.55,.05,.67,.54);
+
+.zyth-hero-bottle.center-bottle {
+  z-index: 2;
+  width: 200px;
+  max-width: 25vw;
+  transform: scale(1.13);
+  filter: drop-shadow(0 10px 40px #ffd03599);
+  transition: transform 0.22s;
+  margin: 0 -40px 0 -40px;
 }
-.zyth-hero-btn:hover:after,
-.zyth-hero-btn:focus:after {
-  transform: skewX(-35deg) translateX(20%);
+
+.zyth-hero-bottle.side-bottle {
+  z-index: 1;
+  width: 140px;
+  max-width: 17vw;
+  opacity: 0.92;
+  filter: drop-shadow(0 8px 28px #ffa82d77);
+  transform: scale(0.98) translateY(25px) skewY(-2deg);
+  transition: transform 0.22s, opacity 0.22s;
+}
+
+.zyth-hero-bottle.side-bottle:first-child {
+  margin-right: -40px;
+  transform: scale(0.98) translateY(25px) skewY(-8deg) rotate(-7deg);
+}
+.zyth-hero-bottle.side-bottle:last-child {
+  margin-left: -40px;
+  transform: scale(0.98) translateY(25px) skewY(8deg) rotate(7deg);
+}
+
+.zyth-hero-bottle.center-bottle:hover,
+.zyth-hero-bottle.side-bottle:hover {
+  transform: scale(1.16) translateY(-12px) !important;
+  filter: drop-shadow(0 16px 50px #ffd035cc);
   opacity: 1;
 }
-.zyth-hero-btn:hover, .zyth-hero-btn:focus {
-  background: linear-gradient(90deg, #fffbe9 0%, #ffd035 95%);
-  color: var(--orange);
-  box-shadow: 0 12px 40px #ffd035cc;
-  transform: translateY(-3px) scale(1.06);
-  text-shadow: 0px 1px 3px #ffd03588;
-}
-.zyth-hero-bottles-group {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  gap: 2vw;
-  flex: 1 1 0;
-  justify-content: flex-start;
-  min-width: 360px;
-}
-.zyth-hero-bottle.big-bottle {
-  width: 180px;
-  max-width: 22vw;
-  height: auto;
-  filter: drop-shadow(0 8px 32px #ffa82d99);
-  background: none;
-  border-radius: 18px;
-  display: block;
-  transition: transform 0.2s;
-}
-.zyth-hero-bottle.big-bottle:hover {
-  transform: translateY(-10px) scale(1.07) rotate(-2deg);
-}
+
+/* Responsive tweaks */
 @media (max-width: 1100px) {
-  .zyth-hero-flex-row.hero-no-testimonials { gap: 2vw; }
-  .zyth-hero-headline { font-size: 7vw; max-width: 340px;}
-  .zyth-hero-bottle.big-bottle { width: 110px; }
+  .zyth-hero-bottle.center-bottle { width: 120px; margin: 0 -22px 0 -22px;}
+  .zyth-hero-bottle.side-bottle { width: 77px; }
+  .zyth-hero-bottles-group.lager-style { min-width: 200px; }
 }
-@media (max-width: 900px) {
-  .zyth-hero-flex-row.hero-no-testimonials { flex-direction: column; align-items: center; gap: 3vw;}
-  .zyth-hero-headline-col { align-items: center; }
-  .zyth-hero-headline { text-align: center; align-items: center; }
-  .zyth-hero-bottles-group { justify-content: center; }
-}
-@media (max-width: 600px) {
-  .zyth-hero-headline { font-size: 10vw; max-width: 90vw; }
-  .zyth-hero-bottle.big-bottle { width: 70px; }
-  .zyth-hero-bottles-group { gap: 1vw; }
+@media (max-width: 700px) {
+  .zyth-hero-bottle.center-bottle { width: 60px; }
+  .zyth-hero-bottle.side-bottle { width: 42px; margin: 0 -8px; }
 }
 </style>
-  
-  <main>
+
+   <main>
     <section class="zyth-section-bright" aria-label="Présentation Zythomaniacs">
       <div class="zyth-section-box">
         <h2 class="zyth-section-title">ZYTHOMANIACS</h2>
