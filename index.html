@@ -21,7 +21,6 @@
       padding: 0 1.2rem;
     }
 
-    /* ---- NEW HERO SECTION ---- */
     .zyth-hero-2025 {
       position: relative;
       width: 100vw;
@@ -41,13 +40,13 @@
       width: 100%;
       height: 100%;
       background: url('brewery-bg.jpg') center center/cover no-repeat;
-      filter: blur(16px) brightness(0.68) saturate(1.1);
+      /* Reduce blur for more detail */
+      filter: blur(7px) brightness(0.74) saturate(1.1);
       opacity: 0.92;
       pointer-events: none;
       transition: filter 0.3s;
     }
     .zyth-hero-2025::before {
-      /* Extra overlay for readability */
       content: "";
       position: absolute;
       inset: 0;
@@ -127,21 +126,37 @@
       color: #232323;
       border-color: #ffca3a;
     }
-    /* Bottle (centered, above blurred bg) */
+    /* HERO BEER BOTTLE (centered, tilted right, larger) */
     .zyth-hero-bottle {
       position: absolute;
       z-index: 3;
       left: 50%;
-      bottom: -6vw;
-      width: 390px;
-      max-height: 88vh;
-      transform: translateX(-50%) rotate(-15deg);
+      bottom: -10vw;
+      width: 540px;
+      max-width: 98vw;
+      max-height: 110vh;
+      transform: translateX(-50%) rotate(22deg);
       filter: drop-shadow(0 16px 44px #000b);
       pointer-events: none;
       user-select: none;
-      transition: filter 0.22s;
+      transition: filter 0.22s, width 0.18s, transform 0.18s;
     }
-    /* Testimonial bubbles */
+    @media (max-width: 1100px) {
+      .zyth-hero-bottle {
+        width: 360px;
+        bottom: -6vw;
+        transform: translateX(-50%) rotate(20deg);
+      }
+    }
+    @media (max-width: 700px) {
+      .zyth-hero-bottle {
+        width: 180px;
+        left: 50%;
+        right: auto;
+        bottom: -12vw;
+        transform: translateX(-50%) rotate(15deg);
+      }
+    }
     .zyth-hero-testimonial {
       position: absolute;
       z-index: 4;
@@ -181,37 +196,16 @@
       opacity: 0.63;
       margin-top: 0.5em;
     }
-    .zyth-hero-logo-bar {
-      margin-top: auto;
-      min-height: 50px;
-      background: #fffbe9;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3vw;
-      padding: 0.8rem 0 0.5rem 0;
-      border-top: 1.5px solid #ffe3ba;
-      box-shadow: 0 -2px 16px #f7a00915;
-      z-index: 5;
-    }
-    .zyth-hero-logo-bar img {
-      height: 32px;
-      opacity: 0.7;
-      filter: grayscale(1) brightness(1.09);
-      margin: 0 0.2em;
-    }
+    /* Removed .zyth-hero-logo-bar */
     @media (max-width: 1100px) {
       .zyth-hero-content-bar { flex-direction: column; align-items: flex-start; padding-top: 7vw; }
       .zyth-hero-headline { font-size: 2.1rem; }
       .zyth-hero-side { margin-left: 0; margin-top: 3vw; max-width: 98vw; }
-      .zyth-hero-bottle { width: 270px; left: 50%; right: auto; transform: translateX(-50%) rotate(-15deg);}
     }
     @media (max-width: 700px) {
       .zyth-hero-content-bar { flex-direction: column; gap: 1.5rem; padding: 8vw 4vw 0 4vw;}
       .zyth-hero-headline { font-size: 1.2rem; padding-bottom: 1rem;}
       .zyth-hero-side { font-size: 1rem; }
-      .zyth-hero-bottle { width: 150px; left: 50%; right: auto; bottom: -12vw; transform: translateX(-50%) rotate(-10deg);}
       .zyth-hero-testimonial { font-size: 0.89rem; padding: 0.7em 0.9em 0.7em 0.9em; max-width: 70vw;}
       .zyth-hero-testimonial.left { left: 2vw; bottom: 12vh;}
       .zyth-hero-testimonial.right { right: 2vw; top: 9vh;}
@@ -229,13 +223,8 @@
         </h1>
       </div>
       <div class="zyth-hero-side">
-        <div>
-          Brassée avec passion. Servie avec âme.<br>
-          Découvrez nos bières artisanales, inspirées par les traditions lorraines et la créativité moderne.
-        </div>
         <div class="zyth-hero-buttons">
           <a href="#shop" class="zyth-hero-btn">Découvrir notre gamme</a>
-          <a href="#club" class="zyth-hero-btn secondary">Rejoindre le club</a>
         </div>
       </div>
     </div>
@@ -253,11 +242,6 @@
         Fraîche, légère et juste ce qu’il faut d’amertume. L’une des meilleures blondes que j’ai goûté en Lorraine.
         <div class="t-meta">Sophie R. &ndash; Nancy</div>
       </div>
-    </div>
-    <div class="zyth-hero-logo-bar">
-      <img src="logo.png" alt="Zythomaniacs logo" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Logo_Lorraine.svg/1200px-Logo_Lorraine.svg.png" alt="Lorraine" />
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/84/Beer_icon.png" alt="Beer Icon" />
     </div>
   </section>
 
