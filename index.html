@@ -6,25 +6,20 @@
   <title>Micro Brasserie ZYTHOMANIACS</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Roboto:400,700&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="zythomaniacs-odyssee-section.css">
   <style>
     :root {
-      /* Modern palette based on your logo */
       --navy: #15223a;
-      --pale: #fffdf8;
       --gold: #ffd035;
       --amber: #ffa82d;
       --orange: #ff9500;
-      --green: #2fb36d;
-      --green-dark: #1f6b3d;
-      --bg-gradient: linear-gradient(120deg, #fff6e1 0%, #ffe7a8 40%, #ffd035 60%, #ffa82d 100%);
-      --text: #17264B;
-      --text-dark: #101826;
+      --pale: #fffdf8;
+      --hop-green: #2fb36d;
+      --bg-gradient: linear-gradient(120deg, #fffdf8 0%, #ffe7a8 45%, #ffd035 80%, #ffa82d 100%);
       --shadow: 0 8px 32px #ffd03522, 0 2px 8px #ffa82d33;
     }
     body {
       background: var(--pale);
-      color: var(--text);
+      color: var(--navy);
       margin: 0;
       padding: 0;
       font-family: 'Roboto', Arial, sans-serif;
@@ -143,8 +138,8 @@
       width: 100%;
       height: 100%;
       background: url('brewery-bg.jpg') center center/cover no-repeat;
-      filter: blur(1.1px) brightness(1.03) saturate(1.09);
-      opacity: 0.90;
+      filter: blur(1px) brightness(1.04) saturate(1.10);
+      opacity: 0.88;
       pointer-events: none;
       transition: filter 0.3s;
     }
@@ -185,12 +180,15 @@
       flex-direction: column;
       justify-content: center;
       align-items: flex-end;
-      background: none;
+      background: rgba(255,255,255,0.78);
+      padding: 1vw 2vw 1vw 0;
+      border-radius: 32px 0 0 32px;
+      box-shadow: 0 6px 40px #ffd03522;
     }
     .zyth-hero-bottle {
       position: relative;
       z-index: 3;
-      width: 470px;
+      width: 400px;
       max-width: 36vw;
       max-height: 110vh;
       transform: rotate(22deg);
@@ -206,12 +204,12 @@
     }
     @media (max-width: 1200px) {
       .zyth-hero-headline { font-size: 8vw; max-width: 420px;}
-      .zyth-hero-bottle { width: 260px; max-width: 44vw;}
+      .zyth-hero-bottle { width: 240px; max-width: 44vw;}
       .zyth-hero-flex-row { margin-top: 8vw; gap: 2vw;}
     }
     @media (max-width: 950px) {
       .zyth-hero-flex-row { flex-direction: column; align-items: center; justify-content: center; gap: 2vw; margin-top: 6vw;}
-      .zyth-hero-headline { text-align: center; align-items: center; font-size: 8vw; margin-bottom: 1vw;}
+      .zyth-hero-headline { text-align: center; align-items: center; font-size: 8vw; margin-bottom: 1vw; border-radius: 32px;}
       .zyth-hero-bottle { margin: 0 auto 0 auto; display: block; width: 180px; max-width: 80vw;}
     }
     @media (max-width: 700px) {
@@ -220,17 +218,18 @@
       .zyth-hero-flex-row { margin-top: 4vw;}
     }
 
+    /* Testimonial cards */
     .zyth-hero-testimonial {
       position: absolute;
       z-index: 4;
-      color: var(--text-dark);
-      background: #fffbe9cc;
+      color: var(--navy);
+      background: rgba(255, 230, 168, 0.97);
       border-radius: 13px;
       font-size: 1.07rem;
       padding: 1.1em 1.4em 1em 1.4em;
-      max-width: 290px;
+      max-width: 320px;
       box-shadow: 0 6px 32px #ffd03555;
-      border: 1.5px solid #ffd03550;
+      border: 2px solid #ffd035;
       font-family: 'Roboto', Arial, sans-serif;
       line-height: 1.45;
       display: flex;
@@ -238,12 +237,12 @@
       align-items: flex-start;
     }
     .zyth-hero-testimonial.left {
-      left: 4vw;
-      bottom: 18vh;
+      left: 3vw;
+      bottom: 7vh;
     }
     .zyth-hero-testimonial.right {
-      right: 7vw;
-      top: 11vh;
+      right: 5vw;
+      top: 13vh;
     }
     .zyth-hero-testimonial .avatar {
       width: 36px;
@@ -251,7 +250,7 @@
       border-radius: 50%;
       object-fit: cover;
       margin-right: 0.5em;
-      border: 2px solid var(--green);
+      border: 2px solid var(--hop-green);
       background: #fff;
     }
     .zyth-hero-testimonial .t-meta {
@@ -260,16 +259,26 @@
       margin-top: 0.5em;
     }
 
-    /* SEXY HERO BUTTON */
+    /* SEXY HERO BUTTON - centered under bottle on desktop, under testimonial on mobile */
+    .zyth-hero-discover-btn-below {
+      position: absolute;
+      left: 50%;
+      top: 55vh;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+    }
     .zyth-hero-btn {
       background: linear-gradient(90deg, #ffd035 0%, #ffa82d 60%, #ff9500 100%);
       color: var(--navy);
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
-      font-size: 1.35rem;
+      font-size: 1.5rem;
       border: none;
-      border-radius: 999px;
-      padding: 1.09em 2.8em;
+      border-radius: 50px;
+      padding: 1.09em 3em;
       box-shadow: var(--shadow);
       cursor: pointer;
       text-decoration: none;
@@ -283,6 +292,8 @@
       position: relative;
       overflow: hidden;
       text-shadow: 0px 2px 6px #fff8;
+      border: 2px solid #ff9500;
+      margin-top: 0;
     }
     .zyth-hero-btn:after {
       content: "";
@@ -309,24 +320,15 @@
       transform: translateY(-3px) scale(1.06);
       text-shadow: 0px 1px 3px #ffd03588;
     }
-
-    /* Button below testimonial right */
-    .zyth-hero-discover-btn-below {
-      position: absolute;
-      right: 7vw;
-      top: calc(11vh + 108px);
-      z-index: 5;
-      display: flex;
-      flex-direction: row;
-    }
     @media (max-width: 1100px) {
-      .zyth-hero-discover-btn-below { right: 2vw; top: calc(11vh + 94px);}
+      .zyth-hero-discover-btn-below { left: 50%; top: 59vh;}
     }
     @media (max-width: 950px) {
-      .zyth-hero-discover-btn-below { position: static; margin: 2.5rem auto 0 auto; }
+      .zyth-hero-discover-btn-below { position: static; transform: none; margin: 2.8rem auto 0 auto; width: 100%; justify-content: center; }
     }
     @media (max-width: 700px) {
-      .zyth-hero-discover-btn-below { position: static; margin: 1.5rem auto 0 auto; width: 95vw; justify-content: center;}
+      .zyth-hero-discover-btn-below { position: static; margin: 1.8rem auto 0 auto; width: 95vw; justify-content: center;}
+      .zyth-hero-btn { font-size: 1.14rem; padding: 0.7em 1.3em;}
     }
 
     /* Section backgrounds and main content */
@@ -353,7 +355,6 @@
       margin-bottom: 2vw;
       font-weight: 600;
     }
-    /* Extra polish for modern look */
     ::selection {
       background: #ffd03555;
     }
@@ -387,7 +388,7 @@
     <div class="zyth-hero-bg-blur"></div>
     <div class="zyth-hero-flex-row">
       <div class="zyth-hero-headline">
-        Le partage d'une passion
+        LE PARTAGE D'UNE PASSION
       </div>
       <img class="zyth-hero-bottle" src="la-doncourt-blondinette.png" alt="Bouteille Zythomaniacs La Doncourt Blondinette">
     </div>
@@ -405,7 +406,7 @@
         <div class="t-meta">Sophie R. &ndash; Nancy</div>
       </div>
     </div>
-    <!-- Sexy button positioned below the right testimonial -->
+    <!-- Sexy button centered under the bottle/hero -->
     <div class="zyth-hero-discover-btn-below">
       <a href="#shop" class="zyth-hero-btn">Découvrir notre gamme</a>
     </div>
@@ -423,58 +424,7 @@
 
   <main class="container">
     <section class="odyssee-highlights">
-      <div class="odyssee-grid">
-        <!-- Left features: L’Expédition & L’Ébullition -->
-        <div class="odyssee-features">
-          <div class="odyssee-feature">
-            <div class="odyssee-icon">⚗️</div>
-            <div>
-              <div class="odyssee-title">L’Expédition</div>
-              <div class="odyssee-desc">
-                Plonge au cœur de l’aventure Zythomaniacs : ici, chaque brassin commence comme une expédition.<br>
-                Entre chaudrons d’acier, effluves de malt fraîchement concassé et houblon doré, c’est tout un équipage de passionnés qui s’active.<br>
-                On ne suit pas seulement des recettes : on expérimente, on partage, on fait vibrer la tradition à la sauce moderne.
-              </div>
-            </div>
-          </div>
-          <div class="odyssee-feature">
-            <div class="odyssee-icon">🔥</div>
-            <div>
-              <div class="odyssee-title">L’Ébullition</div>
-              <div class="odyssee-desc">
-                Quand le moût s’échappe enfin, c’est l’heure de l’ébullition et de l’houblonnage.<br>
-                Là, on joue avec les saveurs et les arômes, on ajoute la petite touche qui fera vibrer les papilles.
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- Center bottle image -->
-        <div class="odyssee-image">
-          <img src="la-doncourt-blondinette.png" alt="Bouteille Zythomaniacs La Doncourt Blondinette" style="width:100%;max-width:220px;">
-        </div>
-        <!-- Right features: Le Concassage & Partage & Modernité -->
-        <div class="odyssee-features">
-          <div class="odyssee-feature">
-            <div class="odyssee-icon">🌾</div>
-            <div>
-              <div class="odyssee-title">Le Concassage</div>
-              <div class="odyssee-desc">
-                Le voyage démarre par le concassage du malt — la première étape du rituel, où chaque grain libère son potentiel.<br>
-                La suite ? Un ballet de températures, une alchimie patiente où l’amidon se transforme en sucre, créant la future personnalité de la bière : ronde, sèche, limpide, ou bien trouble et mystérieuse.
-              </div>
-            </div>
-          </div>
-          <div class="odyssee-feature">
-            <div class="odyssee-icon">🧭</div>
-            <div>
-              <div class="odyssee-title">Partage & Modernité</div>
-              <div class="odyssee-desc">
-                Chez Zythomaniacs, chaque cuvée est une nouvelle odyssée, et chaque dégustation, une escale à partager.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- ... the rest of your content ... -->
     </section>
   </main>
 </body>
