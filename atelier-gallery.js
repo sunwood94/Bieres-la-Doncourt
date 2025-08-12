@@ -1,4 +1,4 @@
-// Advanced Lightbox Gallery for Les Soiffards & L’Atelier Mousse
+// Advanced Lightbox Gallery with grayscale-to-color thumbnail interaction
 document.addEventListener('DOMContentLoaded', function () {
   const images = [
     { src: 'equipe1.jpg', alt: 'Équipe Zythomaniacs 1 grand format' },
@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateLightbox();
     lightbox.classList.add('open');
     document.body.style.overflow = 'hidden';
+    setActiveThumb(index);
   }
 
   function closeLightbox() {
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const { src, alt } = images[currentIndex];
     lightboxImg.src = src;
     lightboxImg.alt = alt;
+    setActiveThumb(currentIndex);
   }
 
   function showPrev() {
@@ -46,6 +48,17 @@ document.addEventListener('DOMContentLoaded', function () {
   function showNext() {
     currentIndex = (currentIndex + 1) % images.length;
     updateLightbox();
+  }
+
+  function setActiveThumb(index) {
+    thumbs.forEach((thumb, i) => {
+      if (i === 0) return; // First image always in color
+      if (i === index) {
+        thumb.classList.add('active');
+      } else {
+        thumb.classList.remove('active');
+      }
+    });
   }
 
   thumbs.forEach(thumb => {
