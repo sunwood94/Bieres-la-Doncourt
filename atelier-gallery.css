@@ -24,7 +24,7 @@
   line-height: 1.55;
 }
 
-/* NEW: Large first image grid */
+/* --- ADVANCED GRID: Large first image, others arranged around --- */
 .gallery-grid-advanced {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -45,7 +45,7 @@
   object-fit: cover;
   border-radius: 16px;
   box-shadow: 0 6px 24px #0004, 0 1px 6px #f7a00933;
-  transition: transform 0.18s, box-shadow 0.18s;
+  transition: filter 0.3s, box-shadow 0.18s, transform 0.18s;
   cursor: pointer;
   border: 2.5px solid transparent;
   background: #1a1a1a;
@@ -71,7 +71,7 @@
 .gallery-thumb:nth-child(7) { grid-column: 1; grid-row: 4; }
 .gallery-thumb:nth-child(8) { grid-column: 2; grid-row: 4; }
 
-/* Responsive adjustments */
+/* Responsive for tablets: 2 columns, large first image, rest below */
 @media (max-width: 900px) {
   .gallery-grid-advanced {
     grid-template-columns: 1fr 1fr;
@@ -92,6 +92,7 @@
   .gallery-thumb:nth-child(8) { display: none; }
 }
 
+/* Responsive for mobile: stacked vertically, first image taller */
 @media (max-width: 600px) {
   .gallery-grid-advanced {
     display: block;
@@ -115,6 +116,29 @@
     display: block;
   }
 }
+
+/* --- COLOR/GRAYSCALE EFFECTS --- */
+/* First image always in color */
+.gallery-thumb:first-child img {
+  filter: none !important;
+  transition: filter 0.3s, box-shadow 0.18s, transform 0.18s;
+}
+
+/* Other images: grayscale until clicked */
+.gallery-thumb:not(:first-child) img {
+  filter: grayscale(100%) contrast(1.1) brightness(0.93);
+  transition: filter 0.3s, box-shadow 0.18s, transform 0.18s;
+}
+.gallery-thumb:not(:first-child):hover img {
+  filter: grayscale(30%) contrast(1.05) brightness(0.96);
+}
+.gallery-thumb:not(:first-child).active img,
+.gallery-thumb:not(:first-child):focus img {
+  filter: none;
+  box-shadow: 0 10px 38px #f7a00988, 0 2px 8px #fff3;
+  z-index: 2;
+}
+
 .gallery-thumb img:hover,
 .gallery-thumb img:focus {
   transform: scale(1.03);
@@ -123,7 +147,7 @@
   z-index: 2;
 }
 
-/* Lightbox effect (unchanged) */
+/* --- LIGHTBOX --- */
 .lightbox {
   display: none;
   position: fixed;
