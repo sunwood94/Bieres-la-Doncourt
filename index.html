@@ -16,6 +16,8 @@
       --hop-green: #2fb36d;
       --bg-gradient: linear-gradient(120deg, #fffdf8 0%, #ffe7a8 45%, #ffd035 80%, #ffa82d 100%);
       --shadow: 0 8px 32px #ffd03522, 0 2px 8px #ffa82d33;
+      --hero-green: #48b244;
+      --hero-green-dark: #1a8e1d;
     }
     body {
       background: var(--pale);
@@ -115,8 +117,8 @@
       .zyth-menu-link { font-size: 0.97rem; padding: 7px 3px;}
       .zyth-menu-logo img { height: 32px;}
     }
-    /* --- END MENU BAR --- */
 
+    /* --- HERO SECTION --- */
     .zyth-hero-2025 {
       position: relative;
       width: 100vw;
@@ -150,7 +152,6 @@
       background: linear-gradient(120deg, #fffdf8ee 0%, #fff6e1cc 70%, #fff0 100%);
       pointer-events: none;
     }
-    /* HERO FLEX NEW LAYOUT */
     .zyth-hero-flex-row.hero-no-testimonials {
       flex-direction: row;
       align-items: center;
@@ -196,7 +197,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.7em;
-      background: #48b244;
+      background: var(--hero-green);
       color: #fff;
       font-family: 'Montserrat', 'Arial Black', Arial, sans-serif;
       font-size: 1.6rem;
@@ -235,7 +236,7 @@
     }
     .zyth-hero-btn-green:hover,
     .zyth-hero-btn-green:focus {
-      background: #1a8e1d;
+      background: var(--hero-green-dark);
       color: #fff;
       box-shadow: 0 14px 40px #48b244aa, 0 2px 8px #155c1d33;
       transform: scale(1.06) translateY(-2px);
