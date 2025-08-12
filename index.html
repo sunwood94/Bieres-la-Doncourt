@@ -8,12 +8,27 @@
   <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="zythomaniacs-odyssee-section.css">
   <style>
+    :root {
+      /* Modern palette based on your logo */
+      --navy: #15223a;
+      --pale: #fffdf8;
+      --gold: #ffd035;
+      --amber: #ffa82d;
+      --orange: #ff9500;
+      --green: #2fb36d;
+      --green-dark: #1f6b3d;
+      --bg-gradient: linear-gradient(120deg, #fff6e1 0%, #ffe7a8 40%, #ffd035 60%, #ffa82d 100%);
+      --text: #17264B;
+      --text-dark: #101826;
+      --shadow: 0 8px 32px #ffd03522, 0 2px 8px #ffa82d33;
+    }
     body {
-      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--pale);
+      color: var(--text);
       margin: 0;
       padding: 0;
-      background: #181818;
-      color: #222;
+      font-family: 'Roboto', Arial, sans-serif;
+      transition: background 0.3s;
     }
     .container {
       max-width: 1200px;
@@ -24,14 +39,14 @@
     /* --- MENU BAR --- */
     .zyth-menu-bar {
       width: 100vw;
-      background: rgba(24,24,24,0.92);
+      background: var(--navy);
       position: relative;
       z-index: 100;
       display: flex;
       justify-content: center;
       align-items: stretch;
       min-height: 76px;
-      box-shadow: 0 2px 16px #0003;
+      box-shadow: 0 2px 16px #0002;
       font-family: 'Montserrat', sans-serif;
     }
     .zyth-menu-inner {
@@ -68,37 +83,38 @@
       z-index: 1;
     }
     .zyth-menu-logo img {
-      height: 50px;
+      height: 57px;
       width: auto;
       display: block;
-      filter: drop-shadow(0 2px 6px #18181850);
+      filter: drop-shadow(0 2px 6px #ffd03555);
       background: transparent;
       border-radius: 50%;
       padding: 2px;
     }
     .zyth-menu-link {
-      color: #fffbe9;
+      color: var(--gold);
       text-decoration: none;
       font-weight: 700;
-      font-size: 1.07rem;
+      font-size: 1.13rem;
       letter-spacing: 0.01em;
-      padding: 10px 6px;
+      padding: 10px 12px;
       border-radius: 5px;
-      transition: background 0.13s, color 0.13s;
+      transition: background 0.14s, color 0.14s;
       position: relative;
       outline: none;
+      background: none;
     }
     .zyth-menu-link:hover,
     .zyth-menu-link:focus {
-      background: #f7a009cc;
-      color: #232323;
+      background: var(--amber);
+      color: var(--navy);
       text-decoration: none;
     }
     @media (max-width: 800px) {
       .zyth-menu-inner { flex-direction: column; gap: 0; padding: 0 8px;}
       .zyth-menu-left, .zyth-menu-right { justify-content: center; gap: 19px; }
       .zyth-menu-logo { margin: 0.4rem 0 0.6rem 0;}
-      .zyth-menu-logo img { height: 40px;}
+      .zyth-menu-logo img { height: 46px;}
     }
     @media (max-width: 600px) {
       .zyth-menu-bar { min-height: 52px;}
@@ -110,14 +126,15 @@
     .zyth-hero-2025 {
       position: relative;
       width: 100vw;
-      min-height: 80vh;
+      min-height: 88vh;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: stretch;
       overflow: hidden;
       padding-bottom: 3vw;
-      background: linear-gradient(120deg, #232c25 70%, #f7a009 200%);
+      background: var(--bg-gradient);
+      transition: background 0.3s;
     }
     .zyth-hero-bg-blur {
       position: absolute;
@@ -126,9 +143,8 @@
       width: 100%;
       height: 100%;
       background: url('brewery-bg.jpg') center center/cover no-repeat;
-      /* Way less blur for more detail */
-      filter: blur(2px) brightness(0.80) saturate(1.08);
-      opacity: 0.93;
+      filter: blur(1.1px) brightness(1.03) saturate(1.09);
+      opacity: 0.90;
       pointer-events: none;
       transition: filter 0.3s;
     }
@@ -137,59 +153,124 @@
       position: absolute;
       inset: 0;
       z-index: 1;
-      background: linear-gradient(120deg, #232c25bb 60%, #19180aba 100%);
+      background: linear-gradient(120deg, #fffdf8ee 0%, #fff6e1cc 70%, #fff0 100%);
       pointer-events: none;
     }
-    .zyth-hero-content-bar {
+
+    .zyth-hero-flex-row {
       display: flex;
       flex-direction: row;
-      align-items: flex-start;
-      justify-content: space-between;
-      padding: 4vw 6vw 0 6vw;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 1vw;
+      width: 100%;
       z-index: 2;
       position: relative;
+      margin-top: 7vw;
     }
     .zyth-hero-headline {
       font-family: 'Montserrat', sans-serif;
-      font-size: 3.1rem;
+      font-size: 6vw;
       font-weight: 900;
       text-transform: uppercase;
-      color: #fff;
+      color: var(--navy);
       letter-spacing: 0.01em;
-      line-height: 1.1;
-      max-width: 460px;
-      text-shadow: 1px 2px 14px #0b0e0d80;
-      margin-bottom: 2.5vw;
-    }
-    .zyth-hero-side {
-      max-width: 320px;
-      margin-left: 3vw;
-      margin-top: 1vw;
-      color: #ffe3ba;
-      font-size: 1.19rem;
-      line-height: 1.5;
-      font-family: 'Roboto', Arial, sans-serif;
+      line-height: 1.05;
+      max-width: 730px;
+      text-shadow: 0 2px 18px #ffd03533, 0 1px 0 #fffbe9;
+      margin: 0 0 2vw 0;
+      flex: 1 1 0;
+      text-align: right;
       display: flex;
       flex-direction: column;
-      gap: 2.1rem;
+      justify-content: center;
+      align-items: flex-end;
+      background: none;
     }
-    .zyth-hero-buttons {
+    .zyth-hero-bottle {
+      position: relative;
+      z-index: 3;
+      width: 470px;
+      max-width: 36vw;
+      max-height: 110vh;
+      transform: rotate(22deg);
+      filter: drop-shadow(0 8px 32px #ffa82d99);
+      pointer-events: none;
+      user-select: none;
+      margin-left: 1vw;
+      margin-right: 0;
+      margin-bottom: 0;
+      flex: 0 0 auto;
+      align-self: flex-end;
+      background: none;
+    }
+    @media (max-width: 1200px) {
+      .zyth-hero-headline { font-size: 8vw; max-width: 420px;}
+      .zyth-hero-bottle { width: 260px; max-width: 44vw;}
+      .zyth-hero-flex-row { margin-top: 8vw; gap: 2vw;}
+    }
+    @media (max-width: 950px) {
+      .zyth-hero-flex-row { flex-direction: column; align-items: center; justify-content: center; gap: 2vw; margin-top: 6vw;}
+      .zyth-hero-headline { text-align: center; align-items: center; font-size: 8vw; margin-bottom: 1vw;}
+      .zyth-hero-bottle { margin: 0 auto 0 auto; display: block; width: 180px; max-width: 80vw;}
+    }
+    @media (max-width: 700px) {
+      .zyth-hero-headline { font-size: 11vw; }
+      .zyth-hero-bottle { width: 100px; max-width: 70vw;}
+      .zyth-hero-flex-row { margin-top: 4vw;}
+    }
+
+    .zyth-hero-testimonial {
+      position: absolute;
+      z-index: 4;
+      color: var(--text-dark);
+      background: #fffbe9cc;
+      border-radius: 13px;
+      font-size: 1.07rem;
+      padding: 1.1em 1.4em 1em 1.4em;
+      max-width: 290px;
+      box-shadow: 0 6px 32px #ffd03555;
+      border: 1.5px solid #ffd03550;
+      font-family: 'Roboto', Arial, sans-serif;
+      line-height: 1.45;
       display: flex;
-      flex-direction: row;
-      gap: 1.2rem;
-      margin-top: 1.2rem;
+      gap: 0.7em;
+      align-items: flex-start;
     }
+    .zyth-hero-testimonial.left {
+      left: 4vw;
+      bottom: 18vh;
+    }
+    .zyth-hero-testimonial.right {
+      right: 7vw;
+      top: 11vh;
+    }
+    .zyth-hero-testimonial .avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 0.5em;
+      border: 2px solid var(--green);
+      background: #fff;
+    }
+    .zyth-hero-testimonial .t-meta {
+      font-size: 0.96em;
+      opacity: 0.63;
+      margin-top: 0.5em;
+    }
+
     /* SEXY HERO BUTTON */
     .zyth-hero-btn {
-      background: linear-gradient(90deg, #ffca3a 0%, #f7a009 100%);
-      color: #232323;
+      background: linear-gradient(90deg, #ffd035 0%, #ffa82d 60%, #ff9500 100%);
+      color: var(--navy);
       font-family: 'Montserrat', sans-serif;
       font-weight: 900;
       font-size: 1.35rem;
       border: none;
       border-radius: 999px;
       padding: 1.09em 2.8em;
-      box-shadow: 0 8px 32px #f7a00977, 0 2px 8px #ffca3a44;
+      box-shadow: var(--shadow);
       cursor: pointer;
       text-decoration: none;
       transition: 
@@ -211,9 +292,9 @@
       width: 60%;
       height: 100%;
       background: linear-gradient(120deg, #fffbe9cc 10%, transparent 70%);
-      opacity: 0.6;
+      opacity: 0.7;
       pointer-events: none;
-      transform: skewX(-35deg) translateX(-110%);
+      transform: skewX(-35deg) translateX(-120%);
       transition: transform 0.45s cubic-bezier(.55,.05,.67,.54);
     }
     .zyth-hero-btn:hover:after,
@@ -222,93 +303,13 @@
       opacity: 1;
     }
     .zyth-hero-btn:hover, .zyth-hero-btn:focus {
-      background: linear-gradient(90deg, #fffbe9 0%, #f7a009 95%);
-      color: #f7a009;
-      box-shadow: 0 12px 40px #f7a009aa;
-      transform: translateY(-3px) scale(1.05);
-      text-shadow: 0px 1px 3px #ffca3a88;
+      background: linear-gradient(90deg, #fffbe9 0%, #ffd035 95%);
+      color: var(--orange);
+      box-shadow: 0 12px 40px #ffd035cc;
+      transform: translateY(-3px) scale(1.06);
+      text-shadow: 0px 1px 3px #ffd03588;
     }
-    .zyth-hero-btn.secondary {
-      background: transparent;
-      color: #ffca3a;
-      border: 2px solid #ffca3a;
-      box-shadow: none;
-      transition: background 0.18s, color 0.18s, border 0.18s;
-    }
-    .zyth-hero-btn.secondary:hover, .zyth-hero-btn.secondary:focus {
-      background: #ffca3a;
-      color: #232323;
-      border-color: #ffca3a;
-    }
-    .zyth-hero-bottle {
-      position: absolute;
-      z-index: 3;
-      left: 50%;
-      bottom: -10vw;
-      width: 540px;
-      max-width: 98vw;
-      max-height: 110vh;
-      transform: translateX(-50%) rotate(22deg);
-      filter: drop-shadow(0 16px 44px #000b);
-      pointer-events: none;
-      user-select: none;
-      transition: filter 0.22s, width 0.18s, transform 0.18s;
-    }
-    @media (max-width: 1100px) {
-      .zyth-hero-bottle {
-        width: 360px;
-        bottom: -6vw;
-        transform: translateX(-50%) rotate(20deg);
-      }
-    }
-    @media (max-width: 700px) {
-      .zyth-hero-bottle {
-        width: 180px;
-        left: 50%;
-        right: auto;
-        bottom: -12vw;
-        transform: translateX(-50%) rotate(15deg);
-      }
-    }
-    .zyth-hero-testimonial {
-      position: absolute;
-      z-index: 4;
-      color: #fff;
-      background: rgba(24, 24, 24, 0.76);
-      border-radius: 13px;
-      font-size: 1.07rem;
-      padding: 1.1em 1.4em 1em 1.4em;
-      max-width: 290px;
-      box-shadow: 0 6px 32px #23232350;
-      border: 1.5px solid #ffe3ba40;
-      font-family: 'Roboto', Arial, sans-serif;
-      line-height: 1.45;
-      display: flex;
-      gap: 0.7em;
-      align-items: flex-start;
-    }
-    .zyth-hero-testimonial.left {
-      left: 4vw;
-      bottom: 18vh;
-    }
-    .zyth-hero-testimonial.right {
-      right: 7vw;
-      top: 11vh;
-    }
-    .zyth-hero-testimonial .avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 0.5em;
-      border: 2px solid #ffca3a;
-      background: #181818;
-    }
-    .zyth-hero-testimonial .t-meta {
-      font-size: 0.96em;
-      opacity: 0.63;
-      margin-top: 0.5em;
-    }
+
     /* Button below testimonial right */
     .zyth-hero-discover-btn-below {
       position: absolute;
@@ -319,23 +320,45 @@
       flex-direction: row;
     }
     @media (max-width: 1100px) {
-      .zyth-hero-content-bar { flex-direction: column; align-items: flex-start; padding-top: 7vw; }
-      .zyth-hero-headline { font-size: 2.1rem; }
-      .zyth-hero-side { margin-left: 0; margin-top: 3vw; max-width: 98vw; }
       .zyth-hero-discover-btn-below { right: 2vw; top: calc(11vh + 94px);}
     }
-    @media (max-width: 800px) {
-      .zyth-hero-content-bar { padding: 10vw 2vw 0 2vw; }
+    @media (max-width: 950px) {
       .zyth-hero-discover-btn-below { position: static; margin: 2.5rem auto 0 auto; }
     }
     @media (max-width: 700px) {
-      .zyth-hero-content-bar { flex-direction: column; gap: 1.5rem; padding: 8vw 4vw 0 4vw;}
-      .zyth-hero-headline { font-size: 1.2rem; padding-bottom: 1rem;}
-      .zyth-hero-side { font-size: 1rem; }
-      .zyth-hero-testimonial { font-size: 0.89rem; padding: 0.7em 0.9em 0.7em 0.9em; max-width: 70vw;}
-      .zyth-hero-testimonial.left { left: 2vw; bottom: 12vh;}
-      .zyth-hero-testimonial.right { right: 2vw; top: 9vh;}
       .zyth-hero-discover-btn-below { position: static; margin: 1.5rem auto 0 auto; width: 95vw; justify-content: center;}
+    }
+
+    /* Section backgrounds and main content */
+    .hero, main, section {
+      background: #fffdf8;
+      color: var(--navy);
+      border-radius: 22px;
+      box-shadow: 0 2px 14px #ffd03510;
+      margin-top: 1vw;
+    }
+    .hero-title {
+      color: var(--navy);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin: 2vw 0 1vw 0;
+      letter-spacing: 0.06em;
+    }
+    .hero-subtitle {
+      color: var(--amber);
+      font-size: 1.22rem;
+      font-family: 'Roboto', Arial, sans-serif;
+      line-height: 1.5;
+      margin-bottom: 2vw;
+      font-weight: 600;
+    }
+    /* Extra polish for modern look */
+    ::selection {
+      background: #ffd03555;
+    }
+    a {
+      transition: color 0.15s;
     }
   </style>
 </head>
@@ -362,17 +385,12 @@
   <!-- HERO SECTION (Blurred Brewery Background) -->
   <section class="zyth-hero-2025">
     <div class="zyth-hero-bg-blur"></div>
-    <div class="zyth-hero-content-bar">
-      <div>
-        <h1 class="zyth-hero-headline">
-          Le partage d'une passion
-        </h1>
+    <div class="zyth-hero-flex-row">
+      <div class="zyth-hero-headline">
+        Le partage d'une passion
       </div>
-      <div class="zyth-hero-side">
-        <!-- Button moved below testimonial, nothing here -->
-      </div>
+      <img class="zyth-hero-bottle" src="la-doncourt-blondinette.png" alt="Bouteille Zythomaniacs La Doncourt Blondinette">
     </div>
-    <img class="zyth-hero-bottle" src="la-doncourt-blondinette.png" alt="Bouteille Zythomaniacs La Doncourt Blondinette">
     <div class="zyth-hero-testimonial left">
       <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="avis client">
       <div>
