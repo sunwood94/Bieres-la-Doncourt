@@ -112,7 +112,6 @@
         gap: 0.9rem;
       }
     }
-
     /* Hero Section */
     .hero {
       flex: 1;
@@ -180,7 +179,6 @@
       color: var(--accent);
       box-shadow: 0 4px 30px #f7a00977;
     }
-
     /* Highlights (Beer Info) */
     .highlights {
       width: 100%;
@@ -228,7 +226,6 @@
       .highlights { gap: 1rem; padding: 1.2rem .3rem; }
       .highlight-card { min-width: 120px; font-size: 1rem; }
     }
-
     /* Essence Section */
     .essence-section {
       background: linear-gradient(120deg, #222 60%, #ffe3ba22 100%);
@@ -274,17 +271,75 @@
       margin-bottom: 0.8em;
       line-height: 1.55;
     }
+    /* Odyssée Animated Images */
+    .odyssee-animated-images {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: flex-end;
+      margin-bottom: 0.6rem;
+      margin-top: 0.2rem;
+    }
+    .odyssee-anim {
+      width: 90px;
+      height: 90px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 4px 18px #f7a00944, 0 1px 8px #2229;
+      border: 2.5px solid #ffca3a;
+      position: relative;
+      z-index: 1;
+      opacity: 0.92;
+      animation-duration: 2.4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(.6,1.6,.5,1);
+      background: #232323;
+    }
+    .odyssee-anim.malt {
+      animation-name: malt-bounce;
+      animation-delay: 0s;
+    }
+    .odyssee-anim.brassage {
+      animation-name: brassage-rotate;
+      animation-delay: 0.6s;
+    }
+    .odyssee-anim.houblon {
+      animation-name: houblon-float;
+      animation-delay: 1.2s;
+    }
+    @keyframes malt-bounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      15% { transform: translateY(-16px) scale(1.07); }
+      30% { transform: translateY(-8px) scale(1.03); }
+      40% { transform: translateY(-22px) scale(1.10); }
+      55% { transform: translateY(-6px) scale(1.02);}
+      70% { transform: translateY(-12px) scale(1.05);}
+    }
+    @keyframes brassage-rotate {
+      0%, 95%, 100% { transform: rotate(-2deg) scale(1);}
+      20% { transform: rotate(7deg) scale(1.07);}
+      40% { transform: rotate(-8deg) scale(1.09);}
+      60% { transform: rotate(4deg) scale(1.04);}
+      80% { transform: rotate(-3deg) scale(1.03);}
+    }
+    @keyframes houblon-float {
+      0%, 100% { transform: translateY(0) scale(1);}
+      25% { transform: translateY(-12px) scale(1.06);}
+      50% { transform: translateY(-24px) scale(1.12);}
+      75% { transform: translateY(-10px) scale(1.04);}
+    }
     @media (max-width: 700px) {
       .essence-content { flex-direction: column; gap: 0.5rem; }
+      .odyssee-animated-images { gap: 0.5rem; }
+      .odyssee-anim { width: 58px; height: 58px; border-radius: 10px; }
     }
-
     /* Atelier Gallery */
     .atelier-gallery {
       margin-top: 2.5rem;
       background: linear-gradient(120deg, #232323 60%, #ffe3ba33 100%);
       border-radius: 18px;
       box-shadow: 0 4px 24px #f7a00916;
-      max-width: 980px;
+      max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
       padding: 2.2rem 1.5rem 2.2rem 1.5rem;
@@ -306,16 +361,17 @@
     }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 1.6rem;
       margin-top: 0.5rem;
     }
     .gallery-grid img {
       width: 100%;
       aspect-ratio: 4/3;
+      height: 320px;
       object-fit: cover;
-      border-radius: 14px;
-      box-shadow: 0 4px 16px #0002, 0 2px 8px #f7a00922;
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #0003, 0 2px 8px #f7a00922;
       background: #1d1d1d;
       transition: transform 0.22s cubic-bezier(.4,2,.4,1), box-shadow 0.18s;
       cursor: pointer;
@@ -327,6 +383,16 @@
       border-color: #ffca3a;
       z-index: 2;
     }
+    @media (max-width: 900px) {
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+      }
+      .gallery-grid img {
+        height: 200px;
+        border-radius: 14px;
+      }
+    }
     @media (max-width: 700px) {
       .atelier-gallery {
         padding: 1.1rem 0.4rem;
@@ -335,8 +401,11 @@
       .gallery-grid {
         gap: 0.65rem;
       }
+      .gallery-grid img {
+        height: 140px;
+        border-radius: 10px;
+      }
     }
-
     /* Vibes Section */
     .vibes {
       margin: 2.5rem auto;
@@ -381,7 +450,6 @@
       cursor: default;
       box-shadow: 0 2px 8px #f7a00944;
     }
-
     /* Footer */
     footer {
       background: #232323;
@@ -407,7 +475,7 @@
   <nav class="navbar">
     <div class="navbar-left">
       <a href="#essence">L’Essence Zythomaniacs</a>
-      <a href="#shop">Bières & Boutique</a>
+      <a href="#shop">🍺 Bières & Boutique</a>
     </div>
     <div class="navbar-logo">
       <a href="#home">
@@ -416,7 +484,7 @@
     </div>
     <div class="navbar-right">
       <a href="#find-us">Où Coule la Bière</a>
-      <a href="#contact">Parlez-nous de vos Soifs</a>
+      <a href="#contact">📬 Parlez-nous de vos Soifs</a>
     </div>
   </nav>
   <!-- HERO -->
@@ -456,20 +524,33 @@
   <section id="essence" class="essence-section">
     <h2 class="essence-title">L’Essence Zythomaniacs</h2>
     <div class="essence-content">
-      <div class="essence-block">
+      <div class="essence-block odyssee-cool">
         <h3 class="essence-subtitle">1.1 L’Odyssée Zythomaniacs</h3>
-        <p>
-          Nous appliquons les méthodes traditionnelles belges pour le brassage de nos bières. Toutes nos bières sont obtenues à partir de produits naturels tels que le malt d’orge, le malt de froment, le houblon, l’eau, des levures et parfois des épices.
-        </p>
-        <p>
-          La première étape est le concassage du malt : cette étape a pour but d’augmenter la surface de contact avec l’eau afin d’augmenter l’efficacité de l’empâtage.
-        </p>
-        <p>
-          L’empâtage est l’une des étapes cruciales du brassage : on réalise différents paliers de température pour transformer l’amidon du malt en sucre indispensable pour la production ultérieure d’alcool. En fonction des températures de paliers, on obtiendra une bière plus sèche ou plus ronde, trouble ou limpide.
-        </p>
-        <p>
-          Le jus récupéré en fin d’empâtage est le mout. Celui-ci sera porté à ébullition pour réaliser l'houblonnage. L’addition du houblon se fera en 2 étapes : houblons amérisants et houblons aromatiques.
-        </p>
+        <div class="odyssee-animated-images">
+          <img class="odyssee-anim malt" src="equipe4.jpg" alt="Concassage du malt">
+          <img class="odyssee-anim brassage" src="equipe3.jpg" alt="Brassage en action">
+          <img class="odyssee-anim houblon" src="equipe2.jpg" alt="Ajout du houblon">
+        </div>
+        <div class="odyssee-cool-text">
+          <p>
+            Plonge au cœur de l’aventure Zythomaniacs : ici, chaque brassin commence comme une expédition.<br>
+            Entre chaudrons d’acier, effluves de malt fraîchement concassé et houblon doré, c’est tout un équipage de passionnés qui s’active.<br>
+            On ne suit pas seulement des recettes : on expérimente, on partage, on fait vibrer la tradition à la sauce moderne.
+          </p>
+          <p>
+            Le voyage démarre par le concassage du malt — la première étape du rituel, où chaque grain libère son potentiel.
+            La suite ? Un ballet de températures, une alchimie patiente où l’amidon se transforme en sucre, créant la future personnalité de la bière : ronde, sèche, limpide, ou bien trouble et mystérieuse.
+          </p>
+          <p>
+            Quand le moût s’échappe enfin, c’est l’heure de l’ébullition et de l’houblonnage.<br>
+            Là, on joue avec les saveurs et les arômes, on ajoute la petite touche qui fera vibrer les papilles.<br>
+            Chez Zythomaniacs, chaque cuvée est une nouvelle odyssée, et chaque dégustation, une escale à partager.
+          </p>
+          <p style="text-align:center;font-size:1.18rem;margin-top:1.2em;">
+            Prêt à embarquer ?<br>
+            <span style="font-size:1.5em;color:#ffca3a;">Santé, moussaillon ! 🍻</span>
+          </p>
+        </div>
       </div>
       <div class="essence-block">
         <!-- The subtitle and intro text for the gallery section are repeated below in the gallery -->
