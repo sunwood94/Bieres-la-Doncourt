@@ -191,56 +191,70 @@
       justify-content: flex-end;
       width: 100%;
     }
-    .zyth-hero-btn {
-      background: linear-gradient(90deg, #ffd035 0%, #ffa82d 60%, #ff9500 100%);
-      color: var(--navy);
-      font-family: 'Montserrat', sans-serif;
+    /* Green "Beer Details" style button */
+    .zyth-hero-btn-green {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7em;
+      background: #48b244;
+      color: #fff;
+      font-family: 'Montserrat', 'Arial Black', Arial, sans-serif;
+      font-size: 1.6rem;
       font-weight: 900;
-      font-size: 1.5rem;
+      letter-spacing: 0.03em;
       border: none;
-      border-radius: 50px;
-      padding: 1.09em 3em;
-      box-shadow: var(--shadow);
-      cursor: pointer;
+      border-radius: 40px;
+      padding: 0.85em 2.2em 0.85em 1.5em;
+      box-shadow: 0 6px 32px #48b24444, 0 2px 8px #155c1d33;
       text-decoration: none;
-      transition: 
-        background 0.20s, 
-        color 0.20s, 
-        box-shadow 0.18s,
-        transform 0.14s;
-      letter-spacing: 0.04em;
-      outline: none;
+      cursor: pointer;
       position: relative;
+      outline: none;
       overflow: hidden;
-      text-shadow: 0px 2px 6px #fff8;
-      border: 2px solid #ff9500;
-      margin-top: 0;
+      transition: background 0.18s, color 0.18s, box-shadow 0.18s, transform 0.15s;
+      text-shadow: 0 2px 6px #165c1d80;
     }
-    .zyth-hero-btn:after {
-      content: "";
-      position: absolute;
-      left: 30%;
-      top: 0;
-      width: 60%;
-      height: 100%;
-      background: linear-gradient(120deg, #fffbe9cc 10%, transparent 70%);
-      opacity: 0.7;
-      pointer-events: none;
-      transform: skewX(-35deg) translateX(-120%);
-      transition: transform 0.45s cubic-bezier(.55,.05,.67,.54);
+    .zyth-hero-btn-green span {
+      font-family: 'Montserrat', 'Arial Black', Arial, sans-serif;
+      font-style: italic;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      font-size: 1.17em;
+      line-height: 1;
     }
-    .zyth-hero-btn:hover:after,
-    .zyth-hero-btn:focus:after {
-      transform: skewX(-35deg) translateX(20%);
-      opacity: 1;
+    .zyth-hero-btn-green .arrow-icon {
+      display: inline-block;
+      vertical-align: middle;
+      transition: transform 0.28s cubic-bezier(.57,1.42,.49,1.01);
+      stroke: #fff;
+      background: none;
+      border-radius: 50%;
+      box-shadow: none;
+      margin-left: 0.3em;
     }
-    .zyth-hero-btn:hover, .zyth-hero-btn:focus {
-      background: linear-gradient(90deg, #fffbe9 0%, #ffd035 95%);
-      color: var(--orange);
-      box-shadow: 0 12px 40px #ffd035cc;
-      transform: translateY(-3px) scale(1.06);
-      text-shadow: 0px 1px 3px #ffd03588;
+    .zyth-hero-btn-green:hover,
+    .zyth-hero-btn-green:focus {
+      background: #1a8e1d;
+      color: #fff;
+      box-shadow: 0 14px 40px #48b244aa, 0 2px 8px #155c1d33;
+      transform: scale(1.06) translateY(-2px);
+      text-shadow: 0 3px 7px #1a8e1d80;
     }
+    .zyth-hero-btn-green:hover .arrow-icon,
+    .zyth-hero-btn-green:focus .arrow-icon {
+      transform: translateX(7px) scale(1.08);
+      stroke: #ffd035;
+    }
+    @media (max-width: 600px) {
+      .zyth-hero-btn-green {
+        font-size: 1.09rem;
+        padding: 0.6em 1.2em 0.6em 1em;
+      }
+      .zyth-hero-btn-green span { font-size: 1em; }
+      .zyth-hero-btn-green .arrow-icon { width: 22px; height: 22px; }
+    }
+    /* LAGER STYLE BOTTLES */
     .zyth-hero-bottles-group.lager-style {
       display: flex;
       align-items: flex-end;
@@ -447,7 +461,7 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION (3 bottles, lager-style arrangement, headline + button) -->
+  <!-- HERO SECTION (3 bottles, lager-style arrangement, headline + green button) -->
   <section class="zyth-hero-2025">
     <div class="zyth-hero-bg-blur"></div>
     <div class="zyth-hero-flex-row hero-no-testimonials">
@@ -456,7 +470,13 @@
           LE PARTAGE D'UNE PASSION
         </div>
         <div class="zyth-hero-btn-row">
-          <a href="#shop" class="zyth-hero-btn">Découvrir notre gamme</a>
+          <a href="#shop" class="zyth-hero-btn-green">
+            <span>Découvrir notre gamme</span>
+            <svg class="arrow-icon" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="16" cy="16" r="14"></circle>
+              <path d="M13 10l6 6-6 6"/>
+            </svg>
+          </a>
         </div>
       </div>
       <div class="zyth-hero-bottles-group lager-style">
