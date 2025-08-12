@@ -11,7 +11,7 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="zythomaniacs-bg.svg" alt="Logo" />
+        <img src="Logo.png" alt="Logo La Doncourt" />
         <span>Bières La Doncourt</span>
       </div>
       <ul>
@@ -26,6 +26,7 @@
 
   <section class="hero">
     <div class="hero-content">
+      <img src="Logo.png" alt="Logo La Doncourt" style="width:140px;margin-bottom:1.3em;">
       <h1>MICRO BRASSERIE ZYTHOMANIACS</h1>
       <p>
         Des bières artisanales brassées avec passion à Doncourt-Lès-Longuyon, selon des méthodes traditionnelles belges.<br>
@@ -38,6 +39,7 @@
   <section id="about" class="about">
     <div class="container">
       <h2>À propos de la brasserie</h2>
+      <img class="about-img" src="Logo.png" alt="Logo La Doncourt">
       <p>
         Située dans un petit village du Nord-Est de la France, à deux pas de la frontière belge, la Micro Brasserie Zythomaniacs applique les méthodes traditionnelles belges pour le brassage de ses bières.<br>
         Toutes nos bières sont obtenues à partir d’ingrédients naturels : malt d’orge, malt de froment, houblon, eau, levures et parfois des épices.<br>
@@ -46,18 +48,16 @@
         <br>
         <strong>Notre philosophie :</strong> proposer des bières artisanales, uniques, et accessibles à tous les amateurs, dans le respect de la tradition et de l’innovation.
       </p>
-      <img class="about-img" src="zythomaniacs-bg.svg" alt="La brasserie">
     </div>
   </section>
 
-  <!-- Merged Bières & Shop Section -->
+  <!-- Merged Bières & Shop Section (Stacked full-width product blocks) -->
   <section id="beershop" class="beershop">
     <div class="container">
       <h2>Nos Bières & E-Shop</h2>
-      <div class="beer-shop-grid">
-        <!-- Each product is clickable for modal zoom -->
-        <div class="beer-shop-card" onclick="openProductModal(0)" style="cursor:pointer;">
-          <img src="IPA-product.png" alt="La Doncourt IPA">
+      <div class="product-feature">
+        <img src="IPA-product.png" alt="La Doncourt IPA">
+        <div class="product-details">
           <h3>La Doncourt IPA</h3>
           <p>
             Notre IPA associe une robe cuivrée intense à un taux d'alcool modéré (6,5%). Sa mousse est abondante et persistante.<br>
@@ -65,10 +65,12 @@
             <b>Disponible en 33cl ou 75cl.</b>
           </p>
           <div class="price">4.00 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(0);">Acheter</button>
+          <button onclick="openProductModal(0)">Acheter</button>
         </div>
-        <div class="beer-shop-card" onclick="openProductModal(1)" style="cursor:pointer;">
-          <img src="BLANCHE-product.png" alt="La Doncourt Blanche">
+      </div>
+      <div class="product-feature">
+        <img src="BLANCHE-product.png" alt="La Doncourt Blanche">
+        <div class="product-details">
           <h3>La Doncourt Blanche</h3>
           <p>
             Notre blanche se caractérise par une robe mimosa pâle naturellement troublée grâce à l’emploi de malt de froment.<br>
@@ -76,37 +78,43 @@
             <b>Disponible en 33cl ou 75cl.</b>
           </p>
           <div class="price">3.70 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(1);">Acheter</button>
+          <button onclick="openProductModal(1)">Acheter</button>
         </div>
-        <div class="beer-shop-card" onclick="openProductModal(2)" style="cursor:pointer;">
-          <img src="BLONDINETTE-product.png" alt="La Doncourt Blondinette">
+      </div>
+      <div class="product-feature">
+        <img src="BLONDINETTE-product.png" alt="La Doncourt Blondinette">
+        <div class="product-details">
           <h3>La Doncourt Blondinette</h3>
           <p>
             D'un agréable jaune d'or, notre blondinette titre 5,2% d’alcool. Sèche et légèrement amère, elle révèle des saveurs plaisantes de malt ainsi qu’une pointe d'acidité.<br>
             <b>Disponible en 33cl ou 75cl.</b>
           </p>
           <div class="price">3.70 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(2);">Acheter</button>
+          <button onclick="openProductModal(2)">Acheter</button>
         </div>
-        <div class="beer-shop-card" onclick="openProductModal(3)" style="cursor:pointer;">
-          <img src="TRIPLE-BLONDE-product.png" alt="La Doncourt Triple Blonde">
+      </div>
+      <div class="product-feature">
+        <img src="TRIPLE-BLONDE-product.png" alt="La Doncourt Triple Blonde">
+        <div class="product-details">
           <h3>La Doncourt Triple Blonde</h3>
           <p>
             Notre triple blonde est une bière complexe et bien trempée, dotée d’une robe miel. Elle développe en bouche une légère amertume ainsi que des arômes d’agrumes et de bois. Taux d'alcool de 8%.<br>
             <b>Disponible en 33cl ou 75cl.</b>
           </p>
           <div class="price">4.50 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(3);">Acheter</button>
+          <button onclick="openProductModal(3)">Acheter</button>
         </div>
-        <div class="beer-shop-card" onclick="openProductModal(4)" style="cursor:pointer;">
-          <img src="TRIPLE-DARK-product.png" alt="La Doncourt Triple Dark">
+      </div>
+      <div class="product-feature">
+        <img src="TRIPLE-DARK-product.png" alt="La Doncourt Triple Dark">
+        <div class="product-details">
           <h3>La Doncourt Triple Dark</h3>
           <p>
             La robe de notre Triple Dark est d’un sombre profond. Grâce aux grains torréfiés, elle mélange des arômes de cacao, de caramel et de café. 8% d’alcool, ronde en bouche et peu amère.<br>
             <b>Disponible en 33cl ou 75cl.</b>
           </p>
           <div class="price">4.50 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(4);">Acheter</button>
+          <button onclick="openProductModal(4)">Acheter</button>
         </div>
       </div>
     </div>
@@ -141,7 +149,7 @@
       <h2>L'équipe</h2>
       <div class="team-grid">
         <div class="team-card">
-          <img src="zythomaniacs-bg.svg" alt="Brasseur">
+          <img src="Logo.png" alt="Brasseur">
           <h4>Julien</h4>
           <p>Maître brasseur, passionné par l’innovation et le partage du savoir-faire brassicole.</p>
         </div>
@@ -180,6 +188,7 @@
 
   <footer>
     <div>
+      <img src="Logo.png" alt="Logo La Doncourt" style="height:34px;vertical-align:middle;margin-right:0.7em;">
       &copy; 2025 Bières La Doncourt. Tous droits réservés.
     </div>
   </footer>
