@@ -3,10 +3,10 @@
   background: linear-gradient(120deg, #232323 60%, #ffe3ba33 100%);
   border-radius: 18px;
   box-shadow: 0 4px 24px #f7a00916;
-  max-width: 1100px;
+  max-width: 1400px; /* Expanded width */
   margin-left: auto;
   margin-right: auto;
-  padding: 2.2rem 1.5rem 2.2rem 1.5rem;
+  padding: 2.2rem 2.5rem 2.2rem 2.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -19,7 +19,7 @@
   color: #e8e6e3;
   font-size: 1.13rem;
   text-align: center;
-  max-width: 620px;
+  max-width: 900px;
   margin: 0 auto 2.1rem auto;
   line-height: 1.55;
 }
@@ -31,7 +31,7 @@
   grid-template-rows: repeat(4, 200px);
   gap: 1.5rem;
   margin-top: 0.5rem;
-  max-width: 1000px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -60,6 +60,7 @@
 .gallery-thumb:first-child img {
   border-radius: 20px;
   box-shadow: 0 10px 38px #f7a00988;
+  filter: none !important;
 }
 
 /* Arrange other images around */
@@ -72,6 +73,16 @@
 .gallery-thumb:nth-child(8) { grid-column: 2; grid-row: 4; }
 
 /* Responsive for tablets: 2 columns, large first image, rest below */
+@media (max-width: 1100px) {
+  .atelier-gallery {
+    max-width: 99vw;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .gallery-grid-advanced {
+    max-width: 99vw;
+  }
+}
 @media (max-width: 900px) {
   .gallery-grid-advanced {
     grid-template-columns: 1fr 1fr;
@@ -121,13 +132,11 @@
 /* First image always in color */
 .gallery-thumb:first-child img {
   filter: none !important;
-  transition: filter 0.3s, box-shadow 0.18s, transform 0.18s;
 }
 
 /* Other images: grayscale until clicked */
 .gallery-thumb:not(:first-child) img {
   filter: grayscale(100%) contrast(1.1) brightness(0.93);
-  transition: filter 0.3s, box-shadow 0.18s, transform 0.18s;
 }
 .gallery-thumb:not(:first-child):hover img {
   filter: grayscale(30%) contrast(1.05) brightness(0.96);
