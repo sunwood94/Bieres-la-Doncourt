@@ -6,255 +6,128 @@
   <title>Micro Brasserie ZYTHOMANIACS</title>
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Roboto:400,700&display=swap" rel="stylesheet">
   <link rel="icon" href="logo.png">
-  <link rel="stylesheet" href="atelier-gallery.css">
+  <link rel="stylesheet" href="zythomaniacs-odyssee-section.css">
   <style>
-    /* ...All your styles exactly as you posted above... */
-
-    /* Replace your gallery section advanced grid with a flow slide horizontal scroll:
-       (add these at the end of your <style> for gallery) */
-    .gallery-featured-strip {
-      display: flex;
-      gap: 2.5rem;
-      align-items: flex-start;
-      width: 100%;
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #181818;
+      color: #222;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
+    }
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: #f7a009;
       margin-top: 2rem;
+      text-align: center;
     }
-    .gallery-featured {
-      flex: 0 0 340px;
-      max-width: 380px;
+    /* Optional: Style for a hero/title at the top */
+    .hero {
+      padding: 2.4rem 0 1.2rem 0;
+      background: #232323;
     }
-    .gallery-featured img {
-      width: 100%;
-      aspect-ratio: 1/1;
-      min-height: 0;
-      border-radius: 20px;
-      box-shadow: 0 10px 38px #f7a00988;
-      filter: none !important;
-      object-fit: cover;
-      display: block;
+    .hero-title {
+      font-size: 2.6rem;
+      font-family: 'Montserrat', sans-serif;
+      color: #ffca3a;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
     }
-    .gallery-scroll-strip {
-      flex: 1 1 0;
-      min-width: 0;
-      display: flex;
-      gap: 1.1rem;
-      overflow-x: auto;
-      padding-bottom: 0.5rem;
-      scroll-snap-type: x mandatory;
+    .hero-subtitle {
+      color: #ffe3ba;
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      margin-bottom: 1.5rem;
     }
-    .gallery-thumb {
-      flex: 0 0 160px;
-      height: 160px;
-      display: block;
-      border-radius: 14px;
-      scroll-snap-align: start;
-      position: relative;
-    }
-    .gallery-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 14px;
-      background: #1a1a1a;
-      box-shadow: 0 6px 24px #0004, 0 1px 6px #f7a00933;
-      border: 2.5px solid transparent;
-      transition: filter 0.3s, box-shadow 0.18s, transform 0.18s;
-      cursor: pointer;
-      display: block;
-      filter: grayscale(100%) contrast(1.1) brightness(0.93);
-    }
-    .gallery-thumb img:hover,
-    .gallery-thumb img:focus {
-      filter: grayscale(30%) contrast(1.05) brightness(0.96);
-    }
-    .gallery-thumb.active img,
-    .gallery-thumb:focus img {
-      filter: none;
-      box-shadow: 0 10px 38px #f7a00988, 0 2px 8px #fff3;
-      z-index: 2;
-    }
-    /* Hide first thumb in strip (since it's the featured image) */
-    .gallery-thumb[data-index="0"] {
-      display: none;
-    }
-    @media (max-width: 700px) {
-      .gallery-featured-strip {
-        flex-direction: column;
-        gap: 1.2rem;
-      }
-      .gallery-featured {
-        max-width: 100%;
-        flex-basis: auto;
-      }
-      .gallery-featured img {
-        width: 100%;
-        max-width: 340px;
-        margin-left: auto;
-        margin-right: auto;
-        height: auto;
-        border-radius: 13px;
-      }
-      .gallery-scroll-strip {
-        gap: 0.7rem;
-        padding-bottom: 0.1rem;
-      }
-      .gallery-thumb {
-        flex-basis: 88px;
-        height: 88px;
-        border-radius: 9px;
-      }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 1.6rem; }
+      .hero-subtitle { font-size: 1rem;}
     }
   </style>
 </head>
 <body>
-  <!-- BACKGROUND -->
-  <div class="bg-main">
-    <div class="bg-blur spot1"></div>
-    <div class="bg-blur spot2"></div>
-    <div class="bg-blur spot3"></div>
+  <div class="hero">
+    <div class="container">
+      <h1 class="hero-title">ZYTHOMANIACS</h1>
+      <div class="hero-subtitle">
+        La passion du brassage artisanal, l’audace de la jeunesse.<br>
+        Des bières créées pour les curieux, les fêtards, les vrais zythophiles !
+      </div>
+    </div>
   </div>
-  <!-- NAVBAR -->
-  <nav class="navbar">
-    <div class="navbar-left">
-      <a href="#essence">L’Essence Zythomaniacs</a>
-      <a href="#shop">🍺 Bières & Boutique</a>
-    </div>
-    <div class="navbar-logo">
-      <a href="#home">
-        <img src="logo.png" alt="Zythomaniacs Logo" />
-      </a>
-    </div>
-    <div class="navbar-right">
-      <a href="#find-us">Où Coule la Bière</a>
-      <a href="#contact">📬 Parlez-nous de vos Soifs</a>
-    </div>
-  </nav>
-  <!-- HERO -->
-  <section class="hero" id="home">
-    <img src="logo.png" class="hero-logo" alt="Zythomaniacs Logo">
-    <h1 class="hero-title">ZYTHOMANIACS</h1>
-    <div class="hero-subtitle">
-      La passion du brassage artisanal, l’audace de la jeunesse.<br>
-      Des bières créées pour les curieux, les fêtards, les vrais zythophiles !
-    </div>
-    <a class="hero-cta" href="#shop">Découvrir la boutique</a>
-  </section>
-  <!-- HIGHLIGHTS -->
-  <section class="highlights">
-    <div class="highlight-card">
-      <div class="emoji">🍺</div>
-      <div class="highlight-title">Bières Créatives</div>
-      Saveurs originales & recettes exclusives pour explorer le houblon autrement.
-    </div>
-    <div class="highlight-card">
-      <div class="emoji">🎉</div>
-      <div class="highlight-title">Ambiance Festive</div>
-      Afterworks, soirées, événements : la bière c’est avant tout un moment à partager !
-    </div>
-    <div class="highlight-card">
-      <div class="emoji">🌱</div>
-      <div class="highlight-title">Local & Écoresponsable</div>
-      Brassées en Lorraine avec des ingrédients naturels, respect & circuit court.
-    </div>
-    <div class="highlight-card">
-      <div class="emoji">🛒</div>
-      <div class="highlight-title">Boutique en ligne</div>
-      Commande facile, click & collect, livraison rapide pour ne jamais manquer de mousse !
-    </div>
-  </section>
-  <!-- ESSENCE ZYTHOMANIACS -->
-  <section id="essence" class="essence-section">
-    <h2 class="essence-title">L’Essence Zythomaniacs</h2>
-    <div class="essence-content">
-      <div class="essence-block odyssee-cool">
-        <h3 class="essence-subtitle">1.1 L’Odyssée Zythomaniacs</h3>
-        <div class="odyssee-animated-images">
-          <img class="odyssee-anim malt" src="equipe4.jpg" alt="Concassage du malt">
-          <img class="odyssee-anim brassage" src="equipe3.jpg" alt="Brassage en action">
-          <img class="odyssee-anim houblon" src="equipe2.jpg" alt="Ajout du houblon">
+
+  <main class="container">
+    <section class="odyssee-highlights">
+      <div class="odyssee-grid">
+        <!-- Left highlights -->
+        <div class="odyssee-features">
+          <div class="odyssee-feature">
+            <div class="odyssee-icon">⚗️</div>
+            <div>
+              <div class="odyssee-title">L’Expédition</div>
+              <div class="odyssee-desc">
+                Plonge au cœur de l’aventure Zythomaniacs : ici, chaque brassin commence comme une expédition.<br>
+                Entre chaudrons d’acier, effluves de malt fraîchement concassé et houblon doré, c’est tout un équipage de passionnés qui s’active.<br>
+                On ne suit pas seulement des recettes : on expérimente, on partage, on fait vibrer la tradition à la sauce moderne.
+              </div>
+            </div>
+          </div>
+          <div class="odyssee-feature">
+            <div class="odyssee-icon">🌾</div>
+            <div>
+              <div class="odyssee-title">Le Concassage</div>
+              <div class="odyssee-desc">
+                Le voyage démarre par le concassage du malt — la première étape du rituel, où chaque grain libère son potentiel.<br>
+                La suite ? Un ballet de températures, une alchimie patiente où l’amidon se transforme en sucre, créant la future personnalité de la bière : ronde, sèche, limpide, ou bien trouble et mystérieuse.
+              </div>
+            </div>
+          </div>
+          <div class="odyssee-feature">
+            <div class="odyssee-icon">🍻</div>
+            <div>
+              <div class="odyssee-title">L’Odyssée</div>
+              <div class="odyssee-desc">
+                Prêt à embarquer ?<br>
+                <strong>Santé, moussaillon ! 🍻</strong>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="odyssee-cool-text">
-          <p>
-            Plonge au cœur de l’aventure Zythomaniacs : ici, chaque brassin commence comme une expédition.<br>
-            Entre chaudrons d’acier, effluves de malt fraîchement concassé et houblon doré, c’est tout un équipage de passionnés qui s’active.<br>
-            On ne suit pas seulement des recettes : on expérimente, on partage, on fait vibrer la tradition à la sauce moderne.
-          </p>
-          <p>
-            Le voyage démarre par le concassage du malt — la première étape du rituel, où chaque grain libère son potentiel.
-            La suite ? Un ballet de températures, une alchimie patiente où l’amidon se transforme en sucre, créant la future personnalité de la bière : ronde, sèche, limpide, ou bien trouble et mystérieuse.
-          </p>
-          <p>
-            Quand le moût s’échappe enfin, c’est l’heure de l’ébullition et de l’houblonnage.<br>
-            Là, on joue avec les saveurs et les arômes, on ajoute la petite touche qui fera vibrer les papilles.<br>
-            Chez Zythomaniacs, chaque cuvée est une nouvelle odyssée, et chaque dégustation, une escale à partager.
-          </p>
-          <p style="text-align:center;font-size:1.18rem;margin-top:1.2em;">
-            Prêt à embarquer ?<br>
-            <span style="font-size:1.5em;color:#ffca3a;">Santé, moussaillon ! 🍻</span>
-          </p>
+        <!-- Center bottle image -->
+        <div class="odyssee-image">
+          <img src="la-doncourt-blondinette.png" alt="Bouteille Zythomaniacs La Doncourt Blondinette" style="width:100%;max-width:220px;">
+        </div>
+        <!-- Right highlights -->
+        <div class="odyssee-features">
+          <div class="odyssee-feature">
+            <div class="odyssee-icon">🔥</div>
+            <div>
+              <div class="odyssee-title">L’Ébullition</div>
+              <div class="odyssee-desc">
+                Quand le moût s’échappe enfin, c’est l’heure de l’ébullition et de l’houblonnage.<br>
+                Là, on joue avec les saveurs et les arômes, on ajoute la petite touche qui fera vibrer les papilles.
+              </div>
+            </div>
+          </div>
+          <div class="odyssee-feature">
+            <div class="odyssee-icon">🧭</div>
+            <div>
+              <div class="odyssee-title">Partage & Modernité</div>
+              <div class="odyssee-desc">
+                Chez Zythomaniacs, chaque cuvée est une nouvelle odyssée, et chaque dégustation, une escale à partager.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="essence-block">
-        <!-- The subtitle and intro text for the gallery section are repeated below in the gallery -->
-      </div>
-    </div>
-  </section>
-  <!-- ADVANCED GALLERY: Les Soiffards & L’Atelier Mousse horizontal flow layout -->
-  <section class="atelier-gallery">
-    <h3 class="essence-subtitle">1.2 Les Soiffards & L’Atelier Mousse</h3>
-    <p>
-      Notre brasserie se situe dans un petit village du Nord-Est de la France, à deux pas de la frontière belge et de son savoir brassicole.
-    </p>
-    <div class="gallery-featured-strip">
-      <div class="gallery-featured">
-        <img src="equipe1.jpg" alt="Équipe Zythomaniacs 1 grand format">
-      </div>
-      <div class="gallery-scroll-strip">
-        <a href="#" class="gallery-thumb" data-index="0"><img src="equipe1.jpg" alt="Équipe Zythomaniacs 1"></a>
-        <a href="#" class="gallery-thumb" data-index="1"><img src="equipe2.jpg" alt="Équipe Zythomaniacs 2"></a>
-        <a href="#" class="gallery-thumb" data-index="2"><img src="equipe3.jpg" alt="Équipe Zythomaniacs 3"></a>
-        <a href="#" class="gallery-thumb" data-index="3"><img src="equipe4.jpg" alt="Équipe Zythomaniacs 4"></a>
-        <a href="#" class="gallery-thumb" data-index="4"><img src="equipe5.jpg" alt="Équipe Zythomaniacs 5"></a>
-        <a href="#" class="gallery-thumb" data-index="5"><img src="equipe6.jpg" alt="Équipe Zythomaniacs 6"></a>
-        <a href="#" class="gallery-thumb" data-index="6"><img src="equipe7.jpg" alt="Équipe Zythomaniacs 7"></a>
-        <a href="#" class="gallery-thumb" data-index="7"><img src="equipe8.jpg" alt="Équipe Zythomaniacs 8"></a>
-      </div>
-    </div>
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox">
-      <button class="close" id="lightbox-close">&times;</button>
-      <button class="prev" id="lightbox-prev">&#10094;</button>
-      <img src="" alt="Agrandissement équipe Zythomaniacs" id="lightbox-img">
-      <button class="next" id="lightbox-next">&#10095;</button>
-    </div>
-  </section>
-  <!-- VIBES SECTION -->
-  <section class="vibes">
-    <h2>Une brasserie qui a du style !</h2>
-    <p>
-      Chez ZYTHOMANIACS, on aime la bière, l’originalité et la convivialité.<br>
-      Viens trinquer avec nous, découvrir nos dernières créations et rejoindre la #beerfamily !<br>
-      Entre potes, avant un concert, ou juste pour le plaisir : nos bières sont là pour donner du peps à tes soirées.
-    </p>
-    <div class="vibes-tags">
-      <div class="vibe-tag">#BeersForFun</div>
-      <div class="vibe-tag">#CraftYourNight</div>
-      <div class="vibe-tag">#LorrainePride</div>
-      <div class="vibe-tag">#ShopMousse</div>
-      <div class="vibe-tag">#Zythomaniacs</div>
-    </div>
-  </section>
-  <!-- FOOTER -->
-  <footer>
-    © 2025 Micro Brasserie ZYTHOMANIACS &mdash; 
-    <a href="#find-us">Où Coule la Bière</a> | 
-    <a href="#contact">Parlez-nous de vos Soifs</a>
-    <br>
-    Suivez-nous :
-    <a href="https://www.facebook.com/MicroBrasserieFamilialeZythomaniac" target="_blank" rel="noopener">Facebook</a>
-    &bull;
-    <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
-  </footer>
-  <script src="atelier-gallery.js" defer></script>
+    </section>
+  </main>
 </body>
 </html>
