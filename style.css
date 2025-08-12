@@ -129,7 +129,7 @@ section {
   box-shadow: 0 2px 12px #0001;
 }
 
-/* Merged Beers & Shop */
+/* Beer Shop Grid (Product Cards) */
 .beershop { background: #fdf6e7; }
 .beer-shop-grid {
   display: flex;
@@ -147,6 +147,9 @@ section {
   padding: 1.3em 1em 1em 1em;
   transition: transform 0.18s;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .beer-shop-card:hover { transform: scale(1.06); box-shadow: 0 8px 28px #0003;}
 .beer-shop-card img {
@@ -164,6 +167,7 @@ section {
 .beer-shop-card p {
   font-size: 0.97em;
   color: #666;
+  flex: 1 1 auto;
 }
 .beer-shop-card .price {
   font-size: 1.2em;
@@ -181,6 +185,7 @@ section {
   cursor: pointer;
   font-size: 1em;
   transition: background 0.15s;
+  margin-bottom: 0.4em;
 }
 .beer-shop-card button:hover {
   background: var(--accent);
