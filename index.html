@@ -138,7 +138,7 @@
       width: 100%;
       height: 100%;
       background: url('brewery-bg.jpg') center center/cover no-repeat;
-      filter: blur(0px) brightness(1) saturate(1);
+      filter: blur(0) brightness(1) saturate(1);
       opacity: 1;
       pointer-events: none;
       transition: filter 0.3s;
@@ -258,7 +258,6 @@
       margin-top: 0.5em;
     }
 
-    /* SEXY HERO BUTTON - centered under bottle on desktop, under testimonial on mobile */
     .zyth-hero-discover-btn-below {
       position: absolute;
       left: 50%;
@@ -330,7 +329,6 @@
       .zyth-hero-btn { font-size: 1.14rem; padding: 0.7em 1.3em;}
     }
 
-    /* Section backgrounds and main content */
     .hero, main, section {
       background: #fffdf8;
       color: var(--navy);
@@ -361,7 +359,6 @@
       transition: color 0.15s;
     }
 
-    /* Feature section styles */
     .zyth-section-bright {
       background: linear-gradient(120deg, #fffdf8 0%, #ffe7a8 60%, #fffbe9 100%);
       padding: 3vw 0 4vw 0;
@@ -497,35 +494,158 @@
     </div>
   </nav>
 
-  <!-- HERO SECTION (Blurred Brewery Background) -->
-  <section class="zyth-hero-2025">
-    <div class="zyth-hero-bg-blur"></div>
-    <div class="zyth-hero-flex-row">
+  <!-- HERO SECTION (Brewery Background) -->
+ <!-- HERO SECTION (No testimonials, 3 big bottles on the right, headline and button on the left) -->
+<section class="zyth-hero-2025">
+  <div class="zyth-hero-bg-blur"></div>
+  <div class="zyth-hero-flex-row hero-no-testimonials">
+    <div class="zyth-hero-headline-col">
       <div class="zyth-hero-headline">
         LE PARTAGE D'UNE PASSION
       </div>
-      <img class="zyth-hero-bottle" src="la-doncourt-blondinette.png" alt="Bouteille Zythomaniacs La Doncourt Blondinette">
-    </div>
-    <div class="zyth-hero-testimonial left">
-      <img class="avatar" src="https://randomuser.me/api/portraits/men/32.jpg" alt="avis client">
-      <div>
-        On sent vraiment la passion du brassage. Saveur franche, belle mousse, parfaite pour les soirées tranquilles.
-        <div class="t-meta">Julien S. &ndash; Metz</div>
+      <div class="zyth-hero-btn-row">
+        <a href="#shop" class="zyth-hero-btn">Découvrir notre gamme</a>
       </div>
     </div>
-    <div class="zyth-hero-testimonial right">
-      <img class="avatar" src="https://randomuser.me/api/portraits/women/44.jpg" alt="avis client">
-      <div>
-        Fraîche, légère et juste ce qu’il faut d’amertume. L’une des meilleures blondes que j’ai goûté en Lorraine.
-        <div class="t-meta">Sophie R. &ndash; Nancy</div>
-      </div>
+    <div class="zyth-hero-bottles-group">
+      <img class="zyth-hero-bottle big-bottle" src="la-doncourt-blondinette.png" alt="Bouteille La Doncourt Blondinette">
+      <img class="zyth-hero-bottle big-bottle" src="doncourt-passion.png" alt="Bouteille La Doncourt Passion">
+      <img class="zyth-hero-bottle big-bottle" src="doncourt-ipa.png" alt="Bouteille La Doncourt IPA">
     </div>
-    <!-- Sexy button centered under the bottle/hero -->
-    <div class="zyth-hero-discover-btn-below">
-      <a href="#shop" class="zyth-hero-btn">Découvrir notre gamme</a>
-    </div>
-  </section>
+  </div>
+</section>
 
+<style>
+.zyth-hero-flex-row.hero-no-testimonials {
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4vw;
+  margin-top: 8vw;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.zyth-hero-headline-col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 260px;
+}
+.zyth-hero-headline {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 5vw;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--navy);
+  letter-spacing: 0.01em;
+  line-height: 1.05;
+  max-width: 600px;
+  text-shadow: 0 2px 18px #ffd03533, 0 1px 0 #fffbe9;
+  background: rgba(255,255,255,0.78);
+  padding: 1vw 2vw 1vw 0.5vw;
+  border-radius: 32px 0 0 32px;
+  box-shadow: 0 6px 40px #ffd03522;
+  margin-bottom: 3vw;
+  text-align: right;
+}
+.zyth-hero-btn-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.zyth-hero-btn {
+  background: linear-gradient(90deg, #ffd035 0%, #ffa82d 60%, #ff9500 100%);
+  color: var(--navy);
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 50px;
+  padding: 1.09em 3em;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  text-decoration: none;
+  transition: 
+    background 0.20s, 
+    color 0.20s, 
+    box-shadow 0.18s,
+    transform 0.14s;
+  letter-spacing: 0.04em;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0px 2px 6px #fff8;
+  border: 2px solid #ff9500;
+  margin-top: 0;
+}
+.zyth-hero-btn:after {
+  content: "";
+  position: absolute;
+  left: 30%;
+  top: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, #fffbe9cc 10%, transparent 70%);
+  opacity: 0.7;
+  pointer-events: none;
+  transform: skewX(-35deg) translateX(-120%);
+  transition: transform 0.45s cubic-bezier(.55,.05,.67,.54);
+}
+.zyth-hero-btn:hover:after,
+.zyth-hero-btn:focus:after {
+  transform: skewX(-35deg) translateX(20%);
+  opacity: 1;
+}
+.zyth-hero-btn:hover, .zyth-hero-btn:focus {
+  background: linear-gradient(90deg, #fffbe9 0%, #ffd035 95%);
+  color: var(--orange);
+  box-shadow: 0 12px 40px #ffd035cc;
+  transform: translateY(-3px) scale(1.06);
+  text-shadow: 0px 1px 3px #ffd03588;
+}
+.zyth-hero-bottles-group {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 2vw;
+  flex: 1 1 0;
+  justify-content: flex-start;
+  min-width: 360px;
+}
+.zyth-hero-bottle.big-bottle {
+  width: 180px;
+  max-width: 22vw;
+  height: auto;
+  filter: drop-shadow(0 8px 32px #ffa82d99);
+  background: none;
+  border-radius: 18px;
+  display: block;
+  transition: transform 0.2s;
+}
+.zyth-hero-bottle.big-bottle:hover {
+  transform: translateY(-10px) scale(1.07) rotate(-2deg);
+}
+@media (max-width: 1100px) {
+  .zyth-hero-flex-row.hero-no-testimonials { gap: 2vw; }
+  .zyth-hero-headline { font-size: 7vw; max-width: 340px;}
+  .zyth-hero-bottle.big-bottle { width: 110px; }
+}
+@media (max-width: 900px) {
+  .zyth-hero-flex-row.hero-no-testimonials { flex-direction: column; align-items: center; gap: 3vw;}
+  .zyth-hero-headline-col { align-items: center; }
+  .zyth-hero-headline { text-align: center; align-items: center; }
+  .zyth-hero-bottles-group { justify-content: center; }
+}
+@media (max-width: 600px) {
+  .zyth-hero-headline { font-size: 10vw; max-width: 90vw; }
+  .zyth-hero-bottle.big-bottle { width: 70px; }
+  .zyth-hero-bottles-group { gap: 1vw; }
+}
+</style>
+  
   <main>
     <section class="zyth-section-bright" aria-label="Présentation Zythomaniacs">
       <div class="zyth-section-box">
