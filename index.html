@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bières La Doncourt</title>
+  <meta name="description" content="Micro Brasserie ZYTHOMANIACS - Bières artisanales à Longuyon, Lorraine. IPA, Blanche, Blonde, Triple, et plus.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,8 +16,7 @@
       </div>
       <ul>
         <li><a href="#about">À propos</a></li>
-        <li><a href="#beers">Les Bières</a></li>
-        <li><a href="#shop">E-Shop</a></li>
+        <li><a href="#beershop">Nos Bières & E-Shop</a></li>
         <li><a href="#team">L'équipe</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -26,42 +26,105 @@
 
   <section class="hero">
     <div class="hero-content">
-      <h1>Découvrez la brasserie artisanale La Doncourt</h1>
-      <p>Des bières uniques, brassées avec passion à Longuyon.</p>
-      <a href="#shop" class="cta">Commander</a>
+      <h1>MICRO BRASSERIE ZYTHOMANIACS</h1>
+      <p>
+        Des bières artisanales brassées avec passion à Doncourt-Lès-Longuyon, selon des méthodes traditionnelles belges.<br>
+        Découvrez toute notre gamme : IPA, Blanche, Blondinette, Triple Blonde, Triple Dark.
+      </p>
+      <a href="#beershop" class="cta">Commander</a>
     </div>
   </section>
 
   <section id="about" class="about">
     <div class="container">
-      <h2>À propos de nous</h2>
-      <p>Brasserie artisanale à Longuyon, alliant savoir-faire traditionnel et créativité pour des bières modernes et savoureuses.</p>
+      <h2>À propos de la brasserie</h2>
+      <p>
+        Située dans un petit village du Nord-Est de la France, à deux pas de la frontière belge, la Micro Brasserie Zythomaniacs applique les méthodes traditionnelles belges pour le brassage de ses bières.<br>
+        Toutes nos bières sont obtenues à partir d’ingrédients naturels : malt d’orge, malt de froment, houblon, eau, levures et parfois des épices.<br>
+        <br>
+        Le processus débute par le concassage du malt pour augmenter la surface de contact avec l’eau. Vient ensuite l’empâtage, étape cruciale où différents paliers de température permettent de transformer l’amidon en sucre fermentescible. Après filtration, le mout est porté à ébullition et houblonné en deux étapes pour obtenir une bière équilibrée, puis fermenté et refermenté en bouteille.<br>
+        <br>
+        <strong>Notre philosophie :</strong> proposer des bières artisanales, uniques, et accessibles à tous les amateurs, dans le respect de la tradition et de l’innovation.
+      </p>
       <img class="about-img" src="zythomaniacs-bg.svg" alt="La brasserie">
     </div>
   </section>
 
-  <section id="beers" class="beers">
+  <!-- Merged Bières & Shop Section -->
+  <section id="beershop" class="beershop">
     <div class="container">
-      <h2>Nos Bières</h2>
-      <div class="beer-grid">
-        <div class="beer-card">
+      <h2>Nos Bières & E-Shop</h2>
+      <div class="beer-shop-grid">
+        <!-- Each product is clickable for modal zoom -->
+        <div class="beer-shop-card" onclick="openProductModal(0)" style="cursor:pointer;">
           <img src="IPA-product.png" alt="La Doncourt IPA">
           <h3>La Doncourt IPA</h3>
-          <p>Arômes fruités, fleurs, amertume soutenue. 6,5%<br>33cl ou 75cl</p>
+          <p>
+            Notre IPA associe une robe cuivrée intense à un taux d'alcool modéré (6,5%). Sa mousse est abondante et persistante.<br>
+            Elle s’apprécie d’abord au nez par le développement puissant d’arômes fruités et de fleurs. Passés les premiers arômes fleuris, elle dérive progressivement vers une amertume soutenue qui persistera longtemps en bouche.<br>
+            <b>Disponible en 33cl ou 75cl.</b>
+          </p>
+          <div class="price">4.00 €</div>
+          <button onclick="event.stopPropagation(); openProductModal(0);">Acheter</button>
         </div>
-        <!-- Ajoutez ici d'autres bières si besoin -->
+        <div class="beer-shop-card" onclick="openProductModal(1)" style="cursor:pointer;">
+          <img src="BLANCHE-product.png" alt="La Doncourt Blanche">
+          <h3>La Doncourt Blanche</h3>
+          <p>
+            Notre blanche se caractérise par une robe mimosa pâle naturellement troublée grâce à l’emploi de malt de froment.<br>
+            Légère, désaltérante, elle associe un subtil goût d’agrumes (citron, orange, pamplemousse) et de coriandre. Faible taux d’alcool (5,2%).<br>
+            <b>Disponible en 33cl ou 75cl.</b>
+          </p>
+          <div class="price">3.70 €</div>
+          <button onclick="event.stopPropagation(); openProductModal(1);">Acheter</button>
+        </div>
+        <div class="beer-shop-card" onclick="openProductModal(2)" style="cursor:pointer;">
+          <img src="BLONDINETTE-product.png" alt="La Doncourt Blondinette">
+          <h3>La Doncourt Blondinette</h3>
+          <p>
+            D'un agréable jaune d'or, notre blondinette titre 5,2% d’alcool. Sèche et légèrement amère, elle révèle des saveurs plaisantes de malt ainsi qu’une pointe d'acidité.<br>
+            <b>Disponible en 33cl ou 75cl.</b>
+          </p>
+          <div class="price">3.70 €</div>
+          <button onclick="event.stopPropagation(); openProductModal(2);">Acheter</button>
+        </div>
+        <div class="beer-shop-card" onclick="openProductModal(3)" style="cursor:pointer;">
+          <img src="TRIPLE-BLONDE-product.png" alt="La Doncourt Triple Blonde">
+          <h3>La Doncourt Triple Blonde</h3>
+          <p>
+            Notre triple blonde est une bière complexe et bien trempée, dotée d’une robe miel. Elle développe en bouche une légère amertume ainsi que des arômes d’agrumes et de bois. Taux d'alcool de 8%.<br>
+            <b>Disponible en 33cl ou 75cl.</b>
+          </p>
+          <div class="price">4.50 €</div>
+          <button onclick="event.stopPropagation(); openProductModal(3);">Acheter</button>
+        </div>
+        <div class="beer-shop-card" onclick="openProductModal(4)" style="cursor:pointer;">
+          <img src="TRIPLE-DARK-product.png" alt="La Doncourt Triple Dark">
+          <h3>La Doncourt Triple Dark</h3>
+          <p>
+            La robe de notre Triple Dark est d’un sombre profond. Grâce aux grains torréfiés, elle mélange des arômes de cacao, de caramel et de café. 8% d’alcool, ronde en bouche et peu amère.<br>
+            <b>Disponible en 33cl ou 75cl.</b>
+          </p>
+          <div class="price">4.50 €</div>
+          <button onclick="event.stopPropagation(); openProductModal(4);">Acheter</button>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="shop" class="shop">
-    <div class="container">
-      <h2>E-Shop</h2>
-      <div class="shop-grid" id="shopGrid">
-        <!-- Les produits seront injectés ici par shop.js -->
-      </div>
+  <!-- Product Modal (zoom and buy) -->
+  <div id="productModal" class="product-modal">
+    <div class="product-modal-content">
+      <span class="close-modal" id="closeProductModal">&times;</span>
+      <img id="modalProductImg" src="" alt="" />
+      <h3 id="modalProductName"></h3>
+      <p id="modalProductDesc"></p>
+      <div class="modal-product-price" id="modalProductPrice"></div>
+      <label for="modalProductQty">Quantité :</label>
+      <input type="number" id="modalProductQty" min="1" value="1" />
+      <button id="modalAddToCart">Ajouter au panier</button>
     </div>
-  </section>
+  </div>
 
   <div class="cart-modal" id="cartModal">
     <div class="cart-content">
@@ -80,26 +143,38 @@
         <div class="team-card">
           <img src="zythomaniacs-bg.svg" alt="Brasseur">
           <h4>Julien</h4>
-          <p>Maître brasseur</p>
+          <p>Maître brasseur, passionné par l’innovation et le partage du savoir-faire brassicole.</p>
         </div>
-        <!-- Ajoutez ici d'autres membres si besoin -->
       </div>
     </div>
   </section>
 
   <section id="contact" class="contact">
     <div class="container">
-      <h2>Contact</h2>
+      <h2>Contact & Où trouver nos bières</h2>
+      <p>
+        <b>Adresse :</b> 17 rue des Moissonneurs, 54620 Doncourt-Lès-Longuyon, France<br>
+        <b>Téléphone :</b> <a href="tel:+33-6-75-22-33-80">+33 (0)6 75 22 33 80</a><br>
+        <b>Email :</b> <a href="mailto:contact@bieres-ladoncourt.fr">contact@bieres-ladoncourt.fr</a>
+      </p>
+      <p>
+        <b>Points de vente :</b>
+        <ul style="text-align:left;display:inline-block;max-width:400px;margin:0 auto;">
+          <li>Directement à la brasserie (Doncourt-Lès-Longuyon)</li>
+          <li>Groupe d'Achat Solidaire des Pays Lorrains (GASPL) - Cons La Grandville</li>
+          <li>Auberge du Caillou Saint Martin - Rouvrois sur Othain</li>
+          <li>Point Vert Le Jardin - Hettange-Grande, Longuyon, Audun-Le-Tiche</li>
+          <li>Pierre De Vin - Longwy</li>
+          <li>Restaurant Fourche-Fourchette - Longuyon</li>
+          <li>Le Dépôt De Vin - Mont-Saint-Martin</li>
+        </ul>
+      </p>
       <form class="contact-form">
         <input type="text" placeholder="Votre nom" required>
         <input type="email" placeholder="Votre email" required>
         <textarea placeholder="Votre message" required></textarea>
         <button type="submit" class="cta">Envoyer</button>
       </form>
-      <div class="contact-info">
-        <p>Email : <a href="mailto:contact@bieres-ladoncourt.fr">contact@bieres-ladoncourt.fr</a></p>
-        <p>Adresse : 38622 Doncourt à Longuyon</p>
-      </div>
     </div>
   </section>
 
