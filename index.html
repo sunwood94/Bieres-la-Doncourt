@@ -2,187 +2,383 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bières La Doncourt</title>
-  <meta name="description" content="Micro Brasserie ZYTHOMANIACS - Bières artisanales à Longuyon, Lorraine. IPA, Blanche, Blonde, Triple, et plus.">
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Micro Brasserie ZYTHOMANIACS</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.png">
+  <style>
+    :root {
+      --main-bg: #181818;
+      --accent: #f7a009;
+      --accent-light: #ffe3ba;
+      --white: #fff;
+      --gray: #bdbdbd;
+      --beer-yellow: #ffca3a;
+      --beer-orange: #ff8800;
+      --dark: #232323;
+    }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: var(--main-bg);
+      color: var(--white);
+      min-height: 100vh;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav.navbar {
+      background: rgba(24,24,24,0.95);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 2rem;
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+    }
+    .navbar-logo img {
+      height: 54px;
+      border-radius: 12px;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+      padding: 4px;
+    }
+    .navbar-menu {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+      margin: 0;
+    }
+    .navbar-menu li a {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+      position: relative;
+    }
+    .navbar-menu li a:after {
+      content: "";
+      display: block;
+      margin: 0 auto;
+      width: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--beer-yellow), var(--accent));
+      transition: width 0.3s;
+      border-radius: 2px;
+    }
+    .navbar-menu li a:hover:after,
+    .navbar-menu li a:focus:after {
+      width: 80%;
+    }
+    .navbar-menu li a:hover,
+    .navbar-menu li a:focus {
+      color: var(--beer-yellow);
+    }
+    .burger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 4px;
+    }
+    .burger div {
+      width: 27px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    @media (max-width: 820px) {
+      .navbar-menu {
+        display: none;
+        flex-direction: column;
+        background: var(--dark);
+        position: absolute;
+        top: 62px; right: 10px;
+        min-width: 180px;
+        border-radius: 0 0 12px 12px;
+        box-shadow: 0 8px 22px #0007;
+        padding: 1.5rem 1.5rem 1rem 1.5rem;
+        z-index: 99;
+      }
+      .navbar-menu.open {
+        display: flex;
+      }
+      .burger {
+        display: flex;
+      }
+    }
+
+    /* Hero Section */
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      background: linear-gradient(120deg, #f7a00920 20%, transparent 100%);
+      min-height: 60vh;
+      padding: 2.5rem 1rem 2rem 1rem;
+      position: relative;
+    }
+    .hero-logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 4px 24px #0007;
+      margin-bottom: 1.2rem;
+      object-fit: contain;
+      border: 6px solid var(--beer-yellow);
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .hero-logo:hover {
+      box-shadow: 0 8px 34px #f7a00999;
+      border-color: var(--accent);
+    }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--beer-yellow);
+      margin: 0 0 0.7rem 0;
+      letter-spacing: 0.03em;
+      text-shadow: 1px 2px 0 #232323, 0 2px 8px #0008;
+    }
+    .hero-subtitle {
+      color: var(--gray);
+      font-size: 1.35rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      max-width: 530px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--beer-yellow), var(--accent));
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      padding: 0.8em 2.3em;
+      font-size: 1.2rem;
+      border-radius: 40px;
+      box-shadow: 0 4px 18px #f7a00955;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 0.7rem;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .hero-cta:hover {
+      background: linear-gradient(90deg, #fffbe9 40%, var(--beer-yellow));
+      color: var(--accent);
+      box-shadow: 0 4px 30px #f7a00977;
+    }
+    /* Highlights (Beer Info) */
+    .highlights {
+      width: 100%;
+      background: #232323;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 2rem 1rem 1.2rem 1rem;
+      flex-wrap: wrap;
+    }
+    .highlight-card {
+      background: linear-gradient(120deg, #f7a00915 0%, #232323 90%);
+      border-radius: 14px;
+      box-shadow: 0 2px 10px #0003;
+      padding: 1.5rem 1.2rem;
+      min-width: 180px;
+      max-width: 280px;
+      flex: 1 1 220px;
+      margin: 0.5rem 0;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.09rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+      border: 1.5px solid #f7a00922;
+    }
+    .highlight-card:hover {
+      box-shadow: 0 8px 24px #f7a00966;
+      transform: translateY(-7px) scale(1.025);
+    }
+    .highlight-card .emoji {
+      font-size: 2.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-card .highlight-title {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--beer-yellow);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    /* Young, fun section */
+    .vibes {
+      margin: 2.5rem auto;
+      text-align: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(120deg, #181818 60%, #f7a00911 100%);
+      border-radius: 18px;
+      max-width: 750px;
+      box-shadow: 0 4px 18px #f7a00916;
+    }
+    .vibes h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--beer-yellow);
+      font-size: 2.1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .vibes p {
+      color: var(--gray);
+      font-size: 1.15rem;
+      max-width: 540px;
+      margin: 0 auto 1.2rem auto;
+      line-height: 1.53;
+    }
+    .vibes .vibes-tags {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .vibes .vibe-tag {
+      background: var(--accent);
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.07rem;
+      border-radius: 20px;
+      padding: 0.6em 1.4em;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, color 0.2s;
+      cursor: default;
+      box-shadow: 0 2px 8px #f7a00944;
+    }
+    /* Footer */
+    footer {
+      background: #232323;
+      color: #bdbdbd;
+      text-align: center;
+      padding: 1.1rem 0 0.6rem 0;
+      font-size: 0.98rem;
+      margin-top: auto;
+      letter-spacing: 0.01em;
+    }
+    footer a {
+      color: var(--beer-yellow);
+      text-decoration: none;
+      margin: 0 0.2em;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--accent); }
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2rem; }
+      .highlights { gap: 1rem; padding: 1.2rem .3rem; }
+      .highlight-card { min-width: 120px; font-size: 1rem; }
+      .vibes h2 { font-size: 1.4rem; }
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="logo">
-        <img src="Logo.png" alt="Logo La Doncourt" />
-        <span>Bières La Doncourt</span>
-      </div>
-      <ul>
-        <li><a href="#about">À propos</a></li>
-        <li><a href="#beershop">Nos Bières & E-Shop</a></li>
-        <li><a href="#team">L'équipe</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="cart-btn" onclick="openCart()">Panier</button>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <div class="navbar-logo">
+      <img src="logo.png" alt="Zythomaniacs Logo">
+    </div>
+    <ul class="navbar-menu" id="nav-menu">
+      <li><a href="#home">L’Essence Zythomaniacs</a></li>
+      <li><a href="#shop">Bières & Boutique</a></li>
+      <li><a href="#find-us">Où Coule la Bière</a></li>
+      <li><a href="#contact">Parlez-nous de vos Soifs</a></li>
+    </ul>
+    <div class="burger" id="burger">
+      <div></div><div></div><div></div>
+    </div>
+  </nav>
+  <section class="hero" id="home">
+    <img src="logo.png" class="hero-logo" alt="Zythomaniacs Logo">
+    <h1 class="hero-title">ZYTHOMANIACS</h1>
+    <div class="hero-subtitle">
+      La passion du brassage artisanal, l’audace de la jeunesse.  
+      <br>Des bières créées pour les curieux, les fêtards, les vrais zythophiles !
+    </div>
+    <a class="hero-cta" href="#shop">Découvrir la boutique</a>
+  </section>
 
-  <section class="hero">
-    <div class="hero-content">
-      <img src="Logo.png" alt="Logo La Doncourt" style="width:140px;margin-bottom:1.3em;">
-      <h1>MICRO BRASSERIE ZYTHOMANIACS</h1>
-      <p>
-        Des bières artisanales brassées avec passion à Doncourt-Lès-Longuyon, selon des méthodes traditionnelles belges.<br>
-        Découvrez toute notre gamme : IPA, Blanche, Blondinette, Triple Blonde, Triple Dark.
-      </p>
-      <a href="#beershop" class="cta">Commander</a>
+  <section class="highlights">
+    <div class="highlight-card">
+      <div class="emoji">🍺</div>
+      <div class="highlight-title">Bières Créatives</div>
+      Saveurs originales & recettes exclusives pour explorer le houblon autrement.
+    </div>
+    <div class="highlight-card">
+      <div class="emoji">🎉</div>
+      <div class="highlight-title">Ambiance Festive</div>
+      Afterworks, soirées, événements : la bière c’est avant tout un moment à partager !
+    </div>
+    <div class="highlight-card">
+      <div class="emoji">🌱</div>
+      <div class="highlight-title">Local & Écoresponsable</div>
+      Brassées en Lorraine avec des ingrédients naturels, respect & circuit court.
+    </div>
+    <div class="highlight-card">
+      <div class="emoji">🛒</div>
+      <div class="highlight-title">Boutique en ligne</div>
+      Commande facile, click & collect, livraison rapide pour ne jamais manquer de mousse !
     </div>
   </section>
 
-  <section id="about" class="about">
-    <div class="container">
-      <h2>À propos de la brasserie</h2>
-      <img class="about-img" src="Logo.png" alt="Logo La Doncourt">
-      <p>
-        Située dans un petit village du Nord-Est de la France, à deux pas de la frontière belge, la Micro Brasserie Zythomaniacs applique les méthodes traditionnelles belges pour le brassage de ses bières.<br>
-        Toutes nos bières sont obtenues à partir d’ingrédients naturels : malt d’orge, malt de froment, houblon, eau, levures et parfois des épices.<br>
-        <br>
-        Le processus débute par le concassage du malt pour augmenter la surface de contact avec l’eau. Vient ensuite l’empâtage, étape cruciale où différents paliers de température permettent de transformer l’amidon en sucre fermentescible. Après filtration, le mout est porté à ébullition et houblonné en deux étapes pour obtenir une bière équilibrée, puis fermenté et refermenté en bouteille.<br>
-        <br>
-        <strong>Notre philosophie :</strong> proposer des bières artisanales, uniques, et accessibles à tous les amateurs, dans le respect de la tradition et de l’innovation.
-      </p>
-    </div>
-  </section>
-
-  <!-- Bières & Shop Section with Product Cards -->
-  <section id="beershop" class="beershop">
-    <div class="container">
-      <h2>Nos Bières & E-Shop</h2>
-      <div class="beer-shop-grid">
-        <div class="beer-shop-card" onclick="openProductModal(0)" style="cursor:pointer;">
-          <img src="IPA-product.png" alt="La Doncourt IPA">
-          <h3>La Doncourt IPA</h3>
-          <p>
-            Notre IPA associe une robe cuivrée intense à un taux d'alcool modéré (6,5%). Sa mousse est abondante et persistante.<br>
-            Amertume soutenue, arômes fruités et floraux.<br>
-            <b>33cl ou 75cl</b>
-          </p>
-          <div class="price">4.00 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(0);">Acheter</button>
-        </div>
-        <div class="beer-shop-card" onclick="openProductModal(1)" style="cursor:pointer;">
-          <img src="BLANCHE-product.png" alt="La Doncourt Blanche">
-          <h3>La Doncourt Blanche</h3>
-          <p>
-            Robe mimosa pâle, trouble grâce au malt de froment. Désaltérante, légère, agrumes & coriandre.<br>
-            <b>33cl ou 75cl</b>
-          </p>
-          <div class="price">3.70 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(1);">Acheter</button>
-        </div>
-        <div class="beer-shop-card" onclick="openProductModal(2)" style="cursor:pointer;">
-          <img src="BLONDINETTE-product.png" alt="La Doncourt Blondinette">
-          <h3>La Doncourt Blondinette</h3>
-          <p>
-            Jaune d'or, sèche et légèrement amère. Saveurs maltées, pointe d'acidité.<br>
-            <b>33cl ou 75cl</b>
-          </p>
-          <div class="price">3.70 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(2);">Acheter</button>
-        </div>
-        <div class="beer-shop-card" onclick="openProductModal(3)" style="cursor:pointer;">
-          <img src="TRIPLE-BLONDE-product.png" alt="La Doncourt Triple Blonde">
-          <h3>La Doncourt Triple Blonde</h3>
-          <p>
-            Robe miel, arômes d’agrumes et de bois, légère amertume, 8% alc.<br>
-            <b>33cl ou 75cl</b>
-          </p>
-          <div class="price">4.50 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(3);">Acheter</button>
-        </div>
-        <div class="beer-shop-card" onclick="openProductModal(4)" style="cursor:pointer;">
-          <img src="TRIPLE-DARK-product.png" alt="La Doncourt Triple Dark">
-          <h3>La Doncourt Triple Dark</h3>
-          <p>
-            Robe sombre, arômes cacao, caramel, café. 8% alc., ronde, peu amère.<br>
-            <b>33cl ou 75cl</b>
-          </p>
-          <div class="price">4.50 €</div>
-          <button onclick="event.stopPropagation(); openProductModal(4);">Acheter</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Product Modal (zoom and buy) -->
-  <div id="productModal" class="product-modal">
-    <div class="product-modal-content">
-      <span class="close-modal" id="closeProductModal">&times;</span>
-      <img id="modalProductImg" src="" alt="" />
-      <h3 id="modalProductName"></h3>
-      <p id="modalProductDesc"></p>
-      <div class="modal-product-price" id="modalProductPrice"></div>
-      <label for="modalProductQty">Quantité :</label>
-      <input type="number" id="modalProductQty" min="1" value="1" />
-      <button id="modalAddToCart">Ajouter au panier</button>
-    </div>
-  </div>
-
-  <div class="cart-modal" id="cartModal">
-    <div class="cart-content">
-      <h3>Votre Panier</h3>
-      <div id="cart-items"></div>
-      <div class="cart-total" id="cart-total"></div>
-      <button id="close-cart" onclick="closeCart()">Fermer</button>
-      <button id="checkout" onclick="checkout()">Valider l'achat</button>
-    </div>
-  </div>
-
-  <section id="team" class="team">
-    <div class="container">
-      <h2>L'équipe</h2>
-      <div class="team-grid">
-        <div class="team-card">
-          <img src="Logo.png" alt="Brasseur">
-          <h4>Julien</h4>
-          <p>Maître brasseur, passionné par l’innovation et le partage du savoir-faire brassicole.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="contact">
-    <div class="container">
-      <h2>Contact & Où trouver nos bières</h2>
-      <p>
-        <b>Adresse :</b> 17 rue des Moissonneurs, 54620 Doncourt-Lès-Longuyon, France<br>
-        <b>Téléphone :</b> <a href="tel:+33-6-75-22-33-80">+33 (0)6 75 22 33 80</a><br>
-        <b>Email :</b> <a href="mailto:contact@bieres-ladoncourt.fr">contact@bieres-ladoncourt.fr</a>
-      </p>
-      <p>
-        <b>Points de vente :</b>
-        <ul style="text-align:left;display:inline-block;max-width:400px;margin:0 auto;">
-          <li>Directement à la brasserie (Doncourt-Lès-Longuyon)</li>
-          <li>Groupe d'Achat Solidaire des Pays Lorrains (GASPL) - Cons La Grandville</li>
-          <li>Auberge du Caillou Saint Martin - Rouvrois sur Othain</li>
-          <li>Point Vert Le Jardin - Hettange-Grande, Longuyon, Audun-Le-Tiche</li>
-          <li>Pierre De Vin - Longwy</li>
-          <li>Restaurant Fourche-Fourchette - Longuyon</li>
-          <li>Le Dépôt De Vin - Mont-Saint-Martin</li>
-        </ul>
-      </p>
-      <form class="contact-form">
-        <input type="text" placeholder="Votre nom" required>
-        <input type="email" placeholder="Votre email" required>
-        <textarea placeholder="Votre message" required></textarea>
-        <button type="submit" class="cta">Envoyer</button>
-      </form>
+  <section class="vibes">
+    <h2>Une brasserie qui a du style !</h2>
+    <p>
+      Chez ZYTHOMANIACS, on aime la bière, l’originalité et la convivialité.<br>
+      Viens trinquer avec nous, découvrir nos dernières créations et rejoindre la #beerfamily !<br>
+      Entre potes, avant un concert, ou juste pour le plaisir : nos bières sont là pour donner du peps à tes soirées.
+    </p>
+    <div class="vibes-tags">
+      <div class="vibe-tag">#BeersForFun</div>
+      <div class="vibe-tag">#CraftYourNight</div>
+      <div class="vibe-tag">#LorrainePride</div>
+      <div class="vibe-tag">#ShopMousse</div>
+      <div class="vibe-tag">#Zythomaniacs</div>
     </div>
   </section>
 
   <footer>
-    <div>
-      <img src="Logo.png" alt="Logo La Doncourt" style="height:34px;vertical-align:middle;margin-right:0.7em;">
-      &copy; 2025 Bières La Doncourt. Tous droits réservés.
-    </div>
+    © 2025 Micro Brasserie ZYTHOMANIACS &mdash; 
+    <a href="#find-us">Où Coule la Bière</a> | 
+    <a href="#contact">Parlez-nous de vos Soifs</a>
+    <br>
+    Suivez-nous :
+    <a href="https://www.facebook.com/MicroBrasserieFamilialeZythomaniac" target="_blank" rel="noopener">Facebook</a>
+    &bull;
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
   </footer>
-  <script src="shop.js"></script>
+  <script>
+    // Simple burger menu
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('nav-menu');
+    burger.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
+    // Optional: close menu on link click mobile
+    document.querySelectorAll('.navbar-menu a').forEach(link => 
+      link.addEventListener('click', () => { menu.classList.remove('open'); })
+    );
+  </script>
 </body>
 </html>
