@@ -1,0 +1,108 @@
+.odyssee-highlights {
+  background: #fffbe9;
+  padding: 2.8rem 0 2.8rem 0;
+  display: flex;
+  justify-content: center;
+}
+.odyssee-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1150px;
+  width: 100%;
+  gap: 2.5rem;
+}
+.odyssee-features {
+  display: flex;
+  flex-direction: column;
+  gap: 2.2rem;
+  flex: 1 1 280px;
+}
+.odyssee-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+.odyssee-icon {
+  font-size: 2.3rem;
+  color: #f7a009;
+  flex-shrink: 0;
+  margin-top: 0.1em;
+}
+.odyssee-title {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #232323;
+  margin-bottom: 0.2em;
+}
+.odyssee-desc {
+  color: #444;
+  font-size: 1.04rem;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.52;
+}
+.odyssee-image {
+  flex: 0 0 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.odyssee-image img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  display: block;
+  box-shadow: 0 8px 30px #ffe3ba66;
+  background: transparent;
+  border-radius: 16px;
+  transition: box-shadow 0.2s,transform 0.2s;
+}
+.odyssee-image img:hover {
+  box-shadow: 0 16px 40px #f7a00988;
+  transform: scale(1.04) rotate(-2deg);
+}
+
+@media (max-width: 990px) {
+  .odyssee-grid {
+    flex-direction: column;
+    gap: 1.7rem;
+  }
+  .odyssee-image {
+    order: -1;
+    margin-bottom: 1.5rem;
+  }
+  .odyssee-features {
+    flex-direction: row;
+    gap: 1.2rem;
+    justify-content: space-between;
+  }
+  .odyssee-feature {
+    flex-direction: column;
+    gap: 0.6rem;
+    align-items: flex-start;
+  }
+}
+@media (max-width: 700px) {
+  .odyssee-highlights {
+    padding: 1.1rem 0 1.1rem 0;
+  }
+  .odyssee-grid {
+    flex-direction: column;
+    gap: 1.1rem;
+    padding: 0 0.3rem;
+  }
+  .odyssee-features {
+    flex-direction: column;
+    gap: 1.05rem;
+    min-width: 0;
+  }
+  .odyssee-feature {
+    flex-direction: row;
+    gap: 0.6rem;
+    font-size: 0.99rem;
+  }
+  .odyssee-image img {
+    max-width: 130px;
+  }
+}
