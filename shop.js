@@ -32,24 +32,6 @@ const products = [
   }
 ];
 
-// Render the merged beer + shop grid
-function renderBeerShop() {
-  const grid = document.querySelector('.beer-shop-grid');
-  if (!grid) return;
-  grid.innerHTML = '';
-  products.forEach((product, i) => {
-    grid.innerHTML += `
-      <div class="beer-shop-card" onclick="openProductModal(${i})" style="cursor:pointer;">
-        <img src="${product.img}" alt="${product.name}">
-        <h3>${product.name}</h3>
-        <p>${product.desc.split('. ')[0]}.</p>
-        <div class="price">${product.price.toFixed(2)} €</div>
-        <button onclick="event.stopPropagation(); openProductModal(${i});">Acheter</button>
-      </div>
-    `;
-  });
-}
-
 // Modal logic
 let currentModalProduct = 0;
 function openProductModal(index) {
@@ -143,7 +125,5 @@ function removeFromCart(index) {
   renderCart();
 }
 
-// Render shop on page load
-document.addEventListener('DOMContentLoaded', function() {
-  renderBeerShop();
-});
+// No need to render a grid, products are statically in HTML
+// (Keep this comment for clarity)
