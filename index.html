@@ -1,52 +1,588 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Les Soiffards & L’Atelier Mousse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Micro Brasserie ZYTHOMANIACS</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="atelier-gallery.css">
   <style>
-    body {
-      background: #181615;
-      font-family: 'Inter', Arial, Helvetica, sans-serif;
-      color: #e8e6e3;
-      margin: 0;
-      padding: 0;
+    :root {
+      --main-bg: #181818;
+      --accent: #f7a009;
+      --accent-light: #ffe3ba;
+      --white: #fff;
+      --gray: #bdbdbd;
+      --beer-yellow: #ffca3a;
+      --beer-orange: #ff8800;
+      --dark: #232323;
     }
+    html, body {
+      margin: 0; padding: 0;
+      font-family: 'Roboto', Arial, sans-serif;
+      min-height: 100vh;
+      height: 100%;
+      width: 100vw;
+      box-sizing: border-box;
+      background: transparent;
+      color: var(--white);
+      scroll-behavior: smooth;
+      position: relative;
+    }
+    body {
+      min-height: 100vh;
+      min-width: 100vw;
+      position: relative;
+      z-index: 1;
+      background: transparent;
+    }
+    /* Attractive animated background layer */
+    .bg-main {
+      position: fixed;
+      z-index: 0;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      background: linear-gradient(119deg, #181818 70%, #ffca3a24 100%);
+      overflow: hidden;
+    }
+    .bg-main .bg-blur {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.35;
+      mix-blend-mode: lighten;
+      animation: floatBg 11s ease-in-out infinite alternate;
+    }
+    .bg-main .spot1 {
+      width: 420px; height: 320px;
+      background: radial-gradient(circle at 40% 40%, #ffca3a 60%, transparent 100%);
+      left: -90px; top: 10vh;
+      animation-delay: 0s;
+    }
+    .bg-main .spot2 {
+      width: 390px; height: 290px;
+      background: radial-gradient(circle at 60% 55%, #f7a009 70%, transparent 100%);
+      right: -110px; top: 35vh;
+      animation-delay: 4s;
+    }
+    .bg-main .spot3 {
+      width: 260px; height: 200px;
+      background: radial-gradient(circle at 60% 40%, #ffe3ba 65%, transparent 100%);
+      left: 60vw; top: 70vh;
+      opacity: 0.18;
+      animation-delay: 8s;
+    }
+    @keyframes floatBg {
+      0%   { transform: translateY(0) scale(1);}
+      100% { transform: translateY(-24px) scale(1.08);}
+    }
+    body > *:not(.bg-main) {
+      position: relative;
+      z-index: 2;
+    }
+    /* Navbar */
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #181818;
+      padding: 0.9rem 2rem;
+      font-family: 'Montserrat', sans-serif;
+      position: sticky;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+    }
+    .navbar-left, .navbar-right {
+      display: flex;
+      gap: 2rem;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .navbar-left {
+      justify-content: flex-end;
+    }
+    .navbar-right {
+      justify-content: flex-start;
+    }
+    .navbar-logo {
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 2rem;
+    }
+    .navbar-logo img {
+      height: 60px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px #0004;
+      padding: 4px;
+      transition: box-shadow 0.3s;
+    }
+    .navbar-logo img:hover {
+      box-shadow: 0 4px 24px #f7a00966;
+    }
+    .navbar a {
+      color: #ffca3a;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1.08rem;
+      position: relative;
+      transition: color 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .navbar a:hover, .navbar a:focus {
+      color: #f7a009;
+    }
+    @media (max-width: 950px) {
+      .navbar {
+        flex-wrap: wrap;
+        padding: 0.8rem 0.6rem;
+      }
+      .navbar-logo {
+        margin: 0 1rem;
+      }
+      .navbar-left, .navbar-right {
+        gap: 1.1rem;
+      }
+      .navbar-logo img { height: 44px; }
+    }
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        padding: 1.2rem 0.5rem;
+      }
+      .navbar-logo {
+        order: -1;
+        margin: 0.8rem 0;
+      }
+      .navbar-left, .navbar-right {
+        justify-content: center;
+        width: 100%;
+        gap: 0.9rem;
+      }
+    }
+    /* Hero Section */
+    .hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      background: linear-gradient(120deg, #f7a00920 20%, transparent 100%);
+      min-height: 60vh;
+      padding: 2.5rem 1rem 2rem 1rem;
+      position: relative;
+    }
+    .hero-logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: var(--white);
+      box-shadow: 0 4px 24px #0007;
+      margin-bottom: 1.2rem;
+      object-fit: contain;
+      border: 6px solid var(--beer-yellow);
+      transition: box-shadow 0.3s, border-color 0.3s;
+    }
+    .hero-logo:hover {
+      box-shadow: 0 8px 34px #f7a00999;
+      border-color: var(--accent);
+    }
+    .hero-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--beer-yellow);
+      margin: 0 0 0.7rem 0;
+      letter-spacing: 0.03em;
+      text-shadow: 1px 2px 0 #232323, 0 2px 8px #0008;
+    }
+    .hero-subtitle {
+      color: var(--gray);
+      font-size: 1.35rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      max-width: 530px;
+      margin-left: auto; margin-right: auto;
+    }
+    .hero-cta {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--beer-yellow), var(--accent));
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      padding: 0.8em 2.3em;
+      font-size: 1.2rem;
+      border-radius: 40px;
+      box-shadow: 0 4px 18px #f7a00955;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      margin-top: 0.7rem;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      letter-spacing: 0.04em;
+    }
+    .hero-cta:hover {
+      background: linear-gradient(90deg, #fffbe9 40%, var(--beer-yellow));
+      color: var(--accent);
+      box-shadow: 0 4px 30px #f7a00977;
+    }
+    /* Highlights (Beer Info) */
+    .highlights {
+      width: 100%;
+      background: #232323;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 2rem 1rem 1.2rem 1rem;
+      flex-wrap: wrap;
+    }
+    .highlight-card {
+      background: linear-gradient(120deg, #f7a00915 0%, #232323 90%);
+      border-radius: 14px;
+      box-shadow: 0 2px 10px #0003;
+      padding: 1.5rem 1.2rem;
+      min-width: 180px;
+      max-width: 280px;
+      flex: 1 1 220px;
+      margin: 0.5rem 0;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.09rem;
+      transition: box-shadow 0.2s, transform 0.2s;
+      border: 1.5px solid #f7a00922;
+    }
+    .highlight-card:hover {
+      box-shadow: 0 8px 24px #f7a00966;
+      transform: translateY(-7px) scale(1.025);
+    }
+    .highlight-card .emoji {
+      font-size: 2.1rem;
+      margin-bottom: 0.5rem;
+    }
+    .highlight-card .highlight-title {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--beer-yellow);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2rem; }
+      .highlights { gap: 1rem; padding: 1.2rem .3rem; }
+      .highlight-card { min-width: 120px; font-size: 1rem; }
+    }
+    /* Essence Section */
+    .essence-section {
+      background: linear-gradient(120deg, #222 60%, #ffe3ba22 100%);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px #f7a00916;
+      max-width: 940px;
+      margin: 2.5rem auto;
+      padding: 2.4rem 1.6rem 2.1rem 1.6rem;
+    }
+    .essence-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.2rem;
+      color: #ffca3a;
+      text-align: center;
+      margin-bottom: 1.9rem;
+      letter-spacing: 0.03em;
+    }
+    .essence-content {
+      display: flex;
+      gap: 2.3rem;
+      flex-wrap: wrap;
+    }
+    .essence-block {
+      background: #181818cc;
+      border-radius: 14px;
+      box-shadow: 0 2px 8px #0003;
+      flex: 1 1 320px;
+      min-width: 270px;
+      padding: 1.3rem 1.2rem 1.2rem 1.2rem;
+      margin-bottom: 1.2rem;
+    }
+    .essence-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      color: #f7a009;
+      font-size: 1.22rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: 0.01em;
+    }
+    .essence-block p {
+      color: #d9d9d9;
+      font-size: 1.06rem;
+      margin-bottom: 0.8em;
+      line-height: 1.55;
+    }
+    /* Odyssée Animated Images */
+    .odyssee-animated-images {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: flex-end;
+      margin-bottom: 0.6rem;
+      margin-top: 0.2rem;
+    }
+    .odyssee-anim {
+      width: 90px;
+      height: 90px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 4px 18px #f7a00944, 0 1px 8px #2229;
+      border: 2.5px solid #ffca3a;
+      position: relative;
+      z-index: 1;
+      opacity: 0.92;
+      animation-duration: 2.4s;
+      animation-iteration-count: infinite;
+      animation-timing-function: cubic-bezier(.6,1.6,.5,1);
+      background: #232323;
+    }
+    .odyssee-anim.malt { animation-name: malt-bounce; animation-delay: 0s; }
+    .odyssee-anim.brassage { animation-name: brassage-rotate; animation-delay: 0.6s; }
+    .odyssee-anim.houblon { animation-name: houblon-float; animation-delay: 1.2s; }
+    @keyframes malt-bounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      15% { transform: translateY(-16px) scale(1.07); }
+      30% { transform: translateY(-8px) scale(1.03); }
+      40% { transform: translateY(-22px) scale(1.10); }
+      55% { transform: translateY(-6px) scale(1.02);}
+      70% { transform: translateY(-12px) scale(1.05);}
+    }
+    @keyframes brassage-rotate {
+      0%, 95%, 100% { transform: rotate(-2deg) scale(1);}
+      20% { transform: rotate(7deg) scale(1.07);}
+      40% { transform: rotate(-8deg) scale(1.09);}
+      60% { transform: rotate(4deg) scale(1.04);}
+      80% { transform: rotate(-3deg) scale(1.03);}
+    }
+    @keyframes houblon-float {
+      0%, 100% { transform: translateY(0) scale(1);}
+      25% { transform: translateY(-12px) scale(1.06);}
+      50% { transform: translateY(-24px) scale(1.12);}
+      75% { transform: translateY(-10px) scale(1.04);}
+    }
+    @media (max-width: 700px) {
+      .essence-content { flex-direction: column; gap: 0.5rem; }
+      .odyssee-animated-images { gap: 0.5rem; }
+      .odyssee-anim { width: 58px; height: 58px; border-radius: 10px; }
+    }
+    /* Vibes Section */
+    .vibes {
+      margin: 2.5rem auto;
+      text-align: center;
+      padding: 2rem 1rem;
+      background: linear-gradient(120deg, #181818 60%, #f7a00911 100%);
+      border-radius: 18px;
+      max-width: 750px;
+      box-shadow: 0 4px 18px #f7a00916;
+    }
+    .vibes h2 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--beer-yellow);
+      font-size: 2.1rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .vibes p {
+      color: var(--gray);
+      font-size: 1.15rem;
+      max-width: 540px;
+      margin: 0 auto 1.2rem auto;
+      line-height: 1.53;
+    }
+    .vibes .vibes-tags {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+    .vibes .vibe-tag {
+      background: var(--accent);
+      color: var(--dark);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.07rem;
+      border-radius: 20px;
+      padding: 0.6em 1.4em;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, color 0.2s;
+      cursor: default;
+      box-shadow: 0 2px 8px #f7a00944;
+    }
+    /* Footer */
+    footer {
+      background: #232323;
+      color: #bdbdbd;
+      text-align: center;
+      padding: 1.1rem 0 0.6rem 0;
+      font-size: 0.98rem;
+      margin-top: auto;
+      letter-spacing: 0.01em;
+    }
+    footer a {
+      color: var(--beer-yellow);
+      text-decoration: none;
+      margin: 0 0.2em;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--accent); }
   </style>
 </head>
 <body>
-
-  <section class="atelier-gallery">
-    <div class="essence-subtitle">Les Soiffards & L’Atelier Mousse</div>
-    <p>
-      Revivez quelques-uns des meilleurs moments de notre équipe passionnée à travers ces images prises lors de nos ateliers et événements.
-    </p>
-    <div class="gallery-featured-strip">
-      <div class="gallery-featured">
-        <img src="equipe1.jpg" alt="Équipe Zythomaniacs 1 grand format">
+  <!-- BACKGROUND -->
+  <div class="bg-main">
+    <div class="bg-blur spot1"></div>
+    <div class="bg-blur spot2"></div>
+    <div class="bg-blur spot3"></div>
+  </div>
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="#essence">L’Essence Zythomaniacs</a>
+      <a href="#shop">🍺 Bières & Boutique</a>
+    </div>
+    <div class="navbar-logo">
+      <a href="#home">
+        <img src="logo.png" alt="Zythomaniacs Logo" />
+      </a>
+    </div>
+    <div class="navbar-right">
+      <a href="#find-us">Où Coule la Bière</a>
+      <a href="#contact">📬 Parlez-nous de vos Soifs</a>
+    </div>
+  </nav>
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <img src="logo.png" class="hero-logo" alt="Zythomaniacs Logo">
+    <h1 class="hero-title">ZYTHOMANIACS</h1>
+    <div class="hero-subtitle">
+      La passion du brassage artisanal, l’audace de la jeunesse.<br>
+      Des bières créées pour les curieux, les fêtards, les vrais zythophiles !
+    </div>
+    <a class="hero-cta" href="#shop">Découvrir la boutique</a>
+  </section>
+  <!-- HIGHLIGHTS -->
+  <section class="highlights">
+    <div class="highlight-card">
+      <div class="emoji">🍺</div>
+      <div class="highlight-title">Bières Créatives</div>
+      Saveurs originales & recettes exclusives pour explorer le houblon autrement.
+    </div>
+    <div class="highlight-card">
+      <div class="emoji">🎉</div>
+      <div class="highlight-title">Ambiance Festive</div>
+      Afterworks, soirées, événements : la bière c’est avant tout un moment à partager !
+    </div>
+    <div class="highlight-card">
+      <div class="emoji">🌱</div>
+      <div class="highlight-title">Local & Écoresponsable</div>
+      Brassées en Lorraine avec des ingrédients naturels, respect & circuit court.
+    </div>
+    <div class="highlight-card">
+      <div class="emoji">🛒</div>
+      <div class="highlight-title">Boutique en ligne</div>
+      Commande facile, click & collect, livraison rapide pour ne jamais manquer de mousse !
+    </div>
+  </section>
+  <!-- ESSENCE ZYTHOMANIACS -->
+  <section id="essence" class="essence-section">
+    <h2 class="essence-title">L’Essence Zythomaniacs</h2>
+    <div class="essence-content">
+      <div class="essence-block odyssee-cool">
+        <h3 class="essence-subtitle">1.1 L’Odyssée Zythomaniacs</h3>
+        <div class="odyssee-animated-images">
+          <img class="odyssee-anim malt" src="equipe4.jpg" alt="Concassage du malt">
+          <img class="odyssee-anim brassage" src="equipe3.jpg" alt="Brassage en action">
+          <img class="odyssee-anim houblon" src="equipe2.jpg" alt="Ajout du houblon">
+        </div>
+        <div class="odyssee-cool-text">
+          <p>
+            Plonge au cœur de l’aventure Zythomaniacs : ici, chaque brassin commence comme une expédition.<br>
+            Entre chaudrons d’acier, effluves de malt fraîchement concassé et houblon doré, c’est tout un équipage de passionnés qui s’active.<br>
+            On ne suit pas seulement des recettes : on expérimente, on partage, on fait vibrer la tradition à la sauce moderne.
+          </p>
+          <p>
+            Le voyage démarre par le concassage du malt — la première étape du rituel, où chaque grain libère son potentiel.
+            La suite ? Un ballet de températures, une alchimie patiente où l’amidon se transforme en sucre, créant la future personnalité de la bière : ronde, sèche, limpide, ou bien trouble et mystérieuse.
+          </p>
+          <p>
+            Quand le moût s’échappe enfin, c’est l’heure de l’ébullition et de l’houblonnage.<br>
+            Là, on joue avec les saveurs et les arômes, on ajoute la petite touche qui fera vibrer les papilles.<br>
+            Chez Zythomaniacs, chaque cuvée est une nouvelle odyssée, et chaque dégustation, une escale à partager.
+          </p>
+          <p style="text-align:center;font-size:1.18rem;margin-top:1.2em;">
+            Prêt à embarquer ?<br>
+            <span style="font-size:1.5em;color:#ffca3a;">Santé, moussaillon ! 🍻</span>
+          </p>
+        </div>
       </div>
-      <div class="gallery-scroll-strip">
-        <a href="#" class="gallery-thumb" data-index="0"><img src="equipe1.jpg" alt="Équipe Zythomaniacs 1"></a>
-        <a href="#" class="gallery-thumb" data-index="1"><img src="equipe2.jpg" alt="Équipe Zythomaniacs 2"></a>
-        <a href="#" class="gallery-thumb" data-index="2"><img src="equipe3.jpg" alt="Équipe Zythomaniacs 3"></a>
-        <a href="#" class="gallery-thumb" data-index="3"><img src="equipe4.jpg" alt="Équipe Zythomaniacs 4"></a>
-        <a href="#" class="gallery-thumb" data-index="4"><img src="equipe5.jpg" alt="Équipe Zythomaniacs 5"></a>
-        <a href="#" class="gallery-thumb" data-index="5"><img src="equipe6.jpg" alt="Équipe Zythomaniacs 6"></a>
-        <a href="#" class="gallery-thumb" data-index="6"><img src="equipe7.jpg" alt="Équipe Zythomaniacs 7"></a>
-        <a href="#" class="gallery-thumb" data-index="7"><img src="equipe8.jpg" alt="Équipe Zythomaniacs 8"></a>
+      <div class="essence-block">
+        <!-- The subtitle and intro text for the gallery section are repeated below in the gallery -->
       </div>
     </div>
   </section>
-
-  <!-- Lightbox Modal -->
-  <div class="lightbox" id="lightbox">
-    <button class="close" id="lightbox-close" aria-label="Fermer">&times;</button>
-    <button class="prev" id="lightbox-prev" aria-label="Image précédente">&#8592;</button>
-    <img id="lightbox-img" src="" alt="">
-    <button class="next" id="lightbox-next" aria-label="Image suivante">&#8594;</button>
-  </div>
-
-  <script src="atelier-gallery.js"></script>
+  <!-- ADVANCED GALLERY -->
+  <section class="atelier-gallery">
+    <h3 class="essence-subtitle">1.2 Les Soiffards & L’Atelier Mousse</h3>
+    <p>
+      Notre brasserie se situe dans un petit village du Nord-Est de la France, à deux pas de la frontière belge et de son savoir brassicole.
+    </p>
+    <div class="gallery-grid-advanced">
+      <a href="#" class="gallery-thumb" data-index="0"><img src="equipe1.jpg" alt="Équipe Zythomaniacs 1"></a>
+      <a href="#" class="gallery-thumb" data-index="1"><img src="equipe2.jpg" alt="Équipe Zythomaniacs 2"></a>
+      <a href="#" class="gallery-thumb" data-index="2"><img src="equipe3.jpg" alt="Équipe Zythomaniacs 3"></a>
+      <a href="#" class="gallery-thumb" data-index="3"><img src="equipe4.jpg" alt="Équipe Zythomaniacs 4"></a>
+      <a href="#" class="gallery-thumb" data-index="4"><img src="equipe5.jpg" alt="Équipe Zythomaniacs 5"></a>
+      <a href="#" class="gallery-thumb" data-index="5"><img src="equipe6.jpg" alt="Équipe Zythomaniacs 6"></a>
+      <a href="#" class="gallery-thumb" data-index="6"><img src="equipe7.jpg" alt="Équipe Zythomaniacs 7"></a>
+      <a href="#" class="gallery-thumb" data-index="7"><img src="equipe8.jpg" alt="Équipe Zythomaniacs 8"></a>
+    </div>
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+      <button class="close" id="lightbox-close">&times;</button>
+      <button class="prev" id="lightbox-prev">&#10094;</button>
+      <img src="" alt="Agrandissement équipe Zythomaniacs" id="lightbox-img">
+      <button class="next" id="lightbox-next">&#10095;</button>
+    </div>
+  </section>
+  <!-- VIBES SECTION -->
+  <section class="vibes">
+    <h2>Une brasserie qui a du style !</h2>
+    <p>
+      Chez ZYTHOMANIACS, on aime la bière, l’originalité et la convivialité.<br>
+      Viens trinquer avec nous, découvrir nos dernières créations et rejoindre la #beerfamily !<br>
+      Entre potes, avant un concert, ou juste pour le plaisir : nos bières sont là pour donner du peps à tes soirées.
+    </p>
+    <div class="vibes-tags">
+      <div class="vibe-tag">#BeersForFun</div>
+      <div class="vibe-tag">#CraftYourNight</div>
+      <div class="vibe-tag">#LorrainePride</div>
+      <div class="vibe-tag">#ShopMousse</div>
+      <div class="vibe-tag">#Zythomaniacs</div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Micro Brasserie ZYTHOMANIACS &mdash; 
+    <a href="#find-us">Où Coule la Bière</a> | 
+    <a href="#contact">Parlez-nous de vos Soifs</a>
+    <br>
+    Suivez-nous :
+    <a href="https://www.facebook.com/MicroBrasserieFamilialeZythomaniac" target="_blank" rel="noopener">Facebook</a>
+    &bull;
+    <a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a>
+  </footer>
+  <script src="atelier-gallery.js" defer></script>
 </body>
 </html>
