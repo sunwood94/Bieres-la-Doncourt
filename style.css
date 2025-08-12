@@ -5,7 +5,6 @@
   --bg: #f8f8f8;
 }
 
-* { box-sizing: border-box; }
 body {
   margin: 0;
   font-family: 'Lexend', 'Montserrat', Arial, sans-serif;
@@ -130,87 +129,49 @@ section {
   box-shadow: 0 2px 12px #0001;
 }
 
-/* Beers */
-.beers { background: var(--bg); }
-.beer-grid {
+/* Merged Beers & Shop */
+.beershop { background: #fdf6e7; }
+.beer-shop-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 2em;
   justify-content: center;
   margin-top: 2em;
 }
-.beer-card {
+.beer-shop-card {
   background: #fff;
   border-radius: 1em;
   box-shadow: 0 4px 16px #0002;
-  width: 210px;
+  width: 250px;
   text-align: center;
   padding: 1.3em 1em 1em 1em;
   transition: transform 0.18s;
+  position: relative;
 }
-.beer-card:hover { transform: scale(1.06); box-shadow: 0 8px 28px #0003;}
-.beer-card img {
+.beer-shop-card:hover { transform: scale(1.06); box-shadow: 0 8px 28px #0003;}
+.beer-shop-card img {
   width: 110px;
   height: 180px;
   object-fit: cover;
   border-radius: 0.5em;
   margin-bottom: 0.7em;
 }
-.beer-card h3 {
+.beer-shop-card h3 {
   font-size: 1.16em;
   margin: 0.2em 0 0.4em 0;
   color: var(--secondary);
 }
-.beer-card p {
+.beer-shop-card p {
   font-size: 0.97em;
   color: #666;
 }
-
-/* Shop */
-.shop {
-  background: #fff9e3;
-  min-height: 320px;
-}
-.shop-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
-  justify-content: center;
-}
-.shop-product {
-  background: #fff;
-  border-radius: 1em;
-  box-shadow: 0 2px 10px #0002;
-  width: 220px;
-  padding: 1.1em 1em 1em 1em;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.shop-product img {
-  width: 100px;
-  height: 160px;
-  object-fit: cover;
-  border-radius: 0.5em;
-  margin-bottom: 0.8em;
-}
-.shop-product h4 {
-  margin: 0.2em 0;
-  color: var(--secondary);
-  font-size: 1.07em;
-}
-.shop-product p {
-  font-size: 0.98em;
-  color: #333;
-}
-.shop-product .price {
+.beer-shop-card .price {
   font-size: 1.2em;
   font-weight: bold;
   color: var(--accent);
   margin: 0.5em 0;
 }
-.shop-product button {
+.beer-shop-card button {
   background: var(--primary);
   border: none;
   color: var(--secondary);
@@ -221,10 +182,65 @@ section {
   font-size: 1em;
   transition: background 0.15s;
 }
-.shop-product button:hover {
+.beer-shop-card button:hover {
   background: var(--accent);
   color: #fff;
 }
+
+/* Product Modal */
+.product-modal {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  left: 0; top: 0; right: 0; bottom: 0;
+  background: rgba(30,35,63,0.88);
+  justify-content: center;
+  align-items: center;
+}
+.product-modal.active { display: flex; }
+.product-modal-content {
+  background: #fff;
+  border-radius: 1em;
+  padding: 2em 2em 1.5em 2em;
+  min-width: 320px;
+  max-width: 95vw;
+  max-height: 90vh;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 32px #0003;
+}
+.product-modal-content img {
+  width: 180px;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 0.7em;
+  margin-bottom: 1em;
+}
+.close-modal {
+  position: absolute;
+  top: 1em; right: 1em;
+  font-size: 2em;
+  color: #333;
+  cursor: pointer;
+}
+#modalProductQty {
+  width: 60px;
+  margin: 0 10px;
+  padding: 0.3em 0.2em;
+  font-size: 1.1em;
+}
+#modalAddToCart {
+  background: var(--primary);
+  font-weight: bold;
+  color: var(--secondary);
+  border: none;
+  padding: 0.7em 2em;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 1em;
+  margin-top: 1em;
+}
+#modalAddToCart:hover { background: var(--accent); color: #fff; }
 
 /* Cart Modal */
 .cart-modal {
@@ -333,16 +349,16 @@ footer {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .beer-grid, .shop-grid, .team-grid {
+  .beer-shop-grid, .team-grid {
     flex-wrap: wrap;
     gap: 1.1em;
   }
-  .beer-card, .shop-product, .team-card { width: 160px; }
+  .beer-shop-card, .team-card { width: 160px; }
 }
 @media (max-width: 700px) {
   nav ul { gap: 0.9em; }
-  .beer-card, .shop-product, .team-card { width: 100%; }
-  .beer-grid, .shop-grid, .team-grid { flex-direction: column; align-items: center;}
+  .beer-shop-card, .team-card { width: 100%; }
+  .beer-shop-grid, .team-grid { flex-direction: column; align-items: center;}
   section { padding: 36px 0 24px 0; }
   .about-img { width: 70%; }
 }
