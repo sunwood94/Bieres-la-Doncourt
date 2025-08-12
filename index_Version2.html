@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Micro Brasserie Zythomaniacs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Micro Brasserie Zythomaniacs, bières artisanales et e-shop">
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="clients/_1/_1/17684/images/logos/clients_logos58aeb3cbb2675.png" alt="Zythomaniacs">
+        <span>ZYTHOMANIACS</span>
+      </div>
+      <ul>
+        <li><a href="#home">Accueil</a></li>
+        <li><a href="#brewery">La Brasserie</a></li>
+        <li><a href="#beers">Les Bières</a></li>
+        <li><a href="#shop">E-Shop</a></li>
+        <li><a href="#team">Équipe</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="cart-btn" id="cart-btn">
+        🛒 <span id="cart-count">0</span>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>MICRO BRASSERIE ZYTHOMANIACS</h1>
+      <p>Bières artisanales du Nord-Est, brassées avec passion.<br>
+      Découvre nos recettes et shoppe en ligne !</p>
+      <a href="#shop" class="cta">Découvrir l'e-shop</a>
+    </div>
+  </section>
+
+  <!-- Brewery Story -->
+  <section class="about" id="brewery">
+    <div class="container">
+      <h2>La Brasserie</h2>
+      <p>Nous appliquons les méthodes traditionnelles belges pour le brassage de nos bières. Nos recettes sont 100% naturelles, brassées avec amour à Doncourt-Lès-Longuyon.</p>
+      <img class="about-img" src="clients/_1/_1/17684/images/upload/upload_58aeb4c7077b4.png" alt="Brasserie cuves">
+    </div>
+  </section>
+
+  <!-- Beers Section -->
+  <section class="beers" id="beers">
+    <div class="container">
+      <h2>Nos Bières</h2>
+      <div class="beer-grid">
+        <!-- 1 -->
+        <div class="beer-card">
+          <img src="clients/_1/_1/17684/images/produits/clients_produits58aeb254a4ea6.jpg" alt="Blanche">
+          <h3>La Doncourt Blanche</h3>
+          <p>Légère, désaltérante, notes d'agrumes et coriandre. 5,2% <br>33cl ou 75cl</p>
+        </div>
+        <!-- 2 -->
+        <div class="beer-card">
+          <img src="clients/_1/_1/17684/images/produits/clients_produits58aea6d0dca25.jpg" alt="Blondinette">
+          <h3>La Doncourt Blondinette</h3>
+          <p>Sèche, douce amertume, pointe d'acidité. 5,2% <br>33cl ou 75cl</p>
+        </div>
+        <!-- 3 -->
+        <div class="beer-card">
+          <img src="clients/_1/_1/17684/images/produits/clients_produits58aeb1a6381e0.jpg" alt="IPA">
+          <h3>La Doncourt IPA</h3>
+          <p>Arômes fruités, fleurs, amertume soutenue. 6,2% <br>33cl ou 75cl</p>
+        </div>
+        <!-- 4 -->
+        <div class="beer-card">
+          <img src="clients/_1/_1/17684/images/produits/clients_produits58aeae1baf51f.jpg" alt="Triple Blonde">
+          <h3>La Doncourt Triple Blonde</h3>
+          <p>Complexe, miel, amertume, agrumes, bois. 8,0% <br>33cl ou 75cl</p>
+        </div>
+        <!-- 5 -->
+        <div class="beer-card">
+          <img src="clients/_1/_1/17684/images/produits/clients_produits58aeada02f9a3.jpg" alt="Triple Dark">
+          <h3>La Doncourt Triple Dark</h3>
+          <p>Ronde, cacao, caramel, café, peu amère. 8,0% <br>33cl ou 75cl</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E-Shop Section -->
+  <section class="shop" id="shop">
+    <div class="container">
+      <h2>E-Shop</h2>
+      <div class="shop-grid" id="shop-grid">
+        <!-- Products will be injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="cart-modal">
+    <div class="cart-content">
+      <h3>🛒 Mon Panier</h3>
+      <div id="cart-items"></div>
+      <div class="cart-total">
+        Total: <span id="cart-total">0€</span>
+      </div>
+      <button id="close-cart">Fermer</button>
+      <button id="checkout" class="cta">Commander</button>
+    </div>
+  </div>
+
+  <!-- Team Section -->
+  <section class="team" id="team">
+    <div class="container">
+      <h2>L'Équipe</h2>
+      <div class="team-grid">
+        <div class="team-card">
+          <img src="clients/_1/_1/17684/images/photos/clients_photos5891f29b45620.jpg" alt="Equipe">
+          <h4>L'équipe Zythomaniacs</h4>
+          <p>Une bande de potes passionnés, fiers de brasser pour la communauté !</p>
+        </div>
+        <!-- Add more team members if you want -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <form class="contact-form">
+        <input type="text" placeholder="Nom" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Message" required></textarea>
+        <button type="submit" class="cta">Envoyer</button>
+      </form>
+      <div class="contact-info">
+        <p>📍 17 rue des Moissonneurs, 54620 Doncourt-Lès-Longuyon</p>
+        <p>📞 <a href="tel:+33675223380">06 75 22 33 80</a></p>
+        <p>
+          <a href="https://www.facebook.com/MicroBrasserieFamilialeZythomaniac" target="_blank">Facebook</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Micro Brasserie Zythomaniacs</p>
+  </footer>
+
+  <script src="shop.js"></script>
+</body>
+</html>
