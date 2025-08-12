@@ -1,4 +1,4 @@
-// Advanced Lightbox Gallery with grayscale-to-color thumbnail interaction
+// Horizontal scrollable gallery with featured image
 document.addEventListener('DOMContentLoaded', function () {
   const images = [
     { src: 'equipe1.jpg', alt: 'Équipe Zythomaniacs 1 grand format' },
@@ -11,15 +11,19 @@ document.addEventListener('DOMContentLoaded', function () {
     { src: 'equipe8.jpg', alt: 'Équipe Zythomaniacs 8 grand format' }
   ];
 
+  // For this layout, the first image is "featured" and not clickable in the strip.
+  // The rest are scrollable and clickable.
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const closeBtn = document.getElementById('lightbox-close');
   const prevBtn = document.getElementById('lightbox-prev');
   const nextBtn = document.getElementById('lightbox-next');
-  const thumbs = document.querySelectorAll('.gallery-thumb');
+  const strip = document.querySelector('.gallery-scroll-strip');
+  const thumbs = strip.querySelectorAll('.gallery-thumb');
 
   let currentIndex = 0;
 
+  // Show image in lightbox and set active thumb
   function openLightbox(index) {
     currentIndex = index;
     updateLightbox();
@@ -27,32 +31,27 @@ document.addEventListener('DOMContentLoaded', function () {
     document.body.style.overflow = 'hidden';
     setActiveThumb(index);
   }
-
   function closeLightbox() {
     lightbox.classList.remove('open');
     document.body.style.overflow = '';
+    setActiveThumb(-1);
   }
-
   function updateLightbox() {
     const { src, alt } = images[currentIndex];
     lightboxImg.src = src;
     lightboxImg.alt = alt;
     setActiveThumb(currentIndex);
   }
-
   function showPrev() {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     updateLightbox();
   }
-
   function showNext() {
     currentIndex = (currentIndex + 1) % images.length;
     updateLightbox();
   }
-
   function setActiveThumb(index) {
     thumbs.forEach((thumb, i) => {
-      if (i === 0) return; // First image always in color
       if (i === index) {
         thumb.classList.add('active');
       } else {
@@ -61,6 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // Attach click event to thumbs (skip first image)
   thumbs.forEach(thumb => {
     thumb.addEventListener('click', function (e) {
       e.preventDefault();
@@ -72,11 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
   closeBtn.addEventListener('click', function () {
     closeLightbox();
   });
-
   prevBtn.addEventListener('click', function () {
     showPrev();
   });
-
   nextBtn.addEventListener('click', function () {
     showNext();
   });
