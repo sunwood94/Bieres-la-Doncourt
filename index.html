@@ -218,7 +218,6 @@
       .zyth-hero-flex-row { margin-top: 4vw;}
     }
 
-    /* Testimonial cards */
     .zyth-hero-testimonial {
       position: absolute;
       z-index: 4;
@@ -361,6 +360,121 @@
     a {
       transition: color 0.15s;
     }
+
+    /* Feature section styles */
+    .zyth-section-bright {
+      background: linear-gradient(120deg, #fffdf8 0%, #ffe7a8 60%, #fffbe9 100%);
+      padding: 3vw 0 4vw 0;
+    }
+    .zyth-section-box {
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 36px;
+      box-shadow: 0 8px 32px #ffd03533;
+      padding: 2vw 2vw 3vw 2vw;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .zyth-section-title {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.7rem;
+      font-weight: 900;
+      color: #15223a;
+      margin-bottom: 0.3em;
+      letter-spacing: 0.03em;
+    }
+    .zyth-section-subtitle {
+      text-align: center;
+      color: #ff9500;
+      font-size: 1.25rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-bottom: 2.2em;
+      line-height: 1.4;
+    }
+    .zyth-orange { color: #ffa82d; }
+
+    .zyth-odyssee-features-grid {
+      display: flex;
+      flex-direction: row;
+      gap: 2.5vw;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+    .zyth-feature-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.6em;
+      flex: 1 1 0;
+    }
+    .zyth-feature-center {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+      margin: 0 1vw;
+    }
+    .zyth-bottle-feature {
+      width: 125px;
+      max-width: 20vw;
+      filter: drop-shadow(0 6px 24px #ffa82d66);
+      transform: rotate(-8deg) scale(1.09);
+      margin: 1em 0;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 2px 10px #ffd03533;
+    }
+
+    .zyth-feature-card {
+      background: #fffbe9e6;
+      border-radius: 18px;
+      box-shadow: 0 2px 8px #ffd03522;
+      padding: 1.2em 1em 1.2em 1em;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 1em;
+      transition: box-shadow 0.18s, transform 0.18s;
+      border-left: 6px solid #ffd035;
+      margin-bottom: 0.2em;
+    }
+    .zyth-feature-card:hover {
+      box-shadow: 0 6px 24px #ffa82d44;
+      transform: translateY(-4px) scale(1.03);
+    }
+    .zyth-feature-icon {
+      font-size: 2.1em;
+      flex: 0 0 auto;
+      margin-top: 0.1em;
+      filter: drop-shadow(0 1px 4px #ffd03599);
+    }
+    .zyth-feature-title {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: 1.22em;
+      margin-bottom: 0.18em;
+      color: #17264B;
+      background: linear-gradient(90deg, #ffd035 70%, #fffbe9 100%);
+      display: inline-block;
+      padding: 0.04em 0.4em 0.04em 0.1em;
+      border-radius: 8px;
+    }
+    .zyth-feature-desc {
+      color: #222;
+      font-size: 1.03em;
+      font-family: 'Roboto', Arial, sans-serif;
+    }
+    @media (max-width: 900px) {
+      .zyth-odyssee-features-grid { flex-direction: column; gap: 2vw; }
+      .zyth-feature-center { margin: 2vw 0; }
+      .zyth-bottle-feature { margin: 2em auto; }
+    }
+    @media (max-width: 600px) {
+      .zyth-section-title { font-size: 1.6rem;}
+      .zyth-section-box { padding: 3vw 3vw 4vw 3vw;}
+      .zyth-bottle-feature { width: 80px; }
+    }
   </style>
 </head>
 <body>
@@ -412,19 +526,64 @@
     </div>
   </section>
 
-  <div class="hero">
-    <div class="container">
-      <h1 class="hero-title">ZYTHOMANIACS</h1>
-      <div class="hero-subtitle">
-        La passion du brassage artisanal, l’audace de la jeunesse.<br>
-        Des bières créées pour les curieux, les fêtards, les vrais zythophiles !
+  <main>
+    <section class="zyth-section-bright" aria-label="Présentation Zythomaniacs">
+      <div class="zyth-section-box">
+        <h2 class="zyth-section-title">ZYTHOMANIACS</h2>
+        <div class="zyth-section-subtitle">
+          La passion du brassage artisanal, <span class="zyth-orange">l’audace de la jeunesse.</span><br>
+          <span class="zyth-orange">Des bières créées pour les curieux, les fêtards, les vrais zythophiles&nbsp;!</span>
+        </div>
+        <div class="zyth-odyssee-features-grid">
+          <div class="zyth-feature-col">
+            <div class="zyth-feature-card" tabindex="0">
+              <div class="zyth-feature-icon" aria-hidden="true">🛸</div>
+              <div>
+                <div class="zyth-feature-title">L’Expédition</div>
+                <div class="zyth-feature-desc">
+                  Plonge au cœur de l’aventure Zythomaniacs&nbsp;: ici, chaque brassin commence comme une expédition.<br>
+                  Entre chaudrons d’acier, effluves de malt fraîchement concassé et houblon doré, c’est tout un équipage de passionnés qui s’active.<br>
+                  On ne suit pas seulement des recettes&nbsp;: on expérimente, on partage, on fait vibrer la tradition à la sauce moderne.
+                </div>
+              </div>
+            </div>
+            <div class="zyth-feature-card" tabindex="0">
+              <div class="zyth-feature-icon" aria-hidden="true">🔥</div>
+              <div>
+                <div class="zyth-feature-title">L’Ébullition</div>
+                <div class="zyth-feature-desc">
+                  Quand le moût s’échappe enfin, c’est l’heure de l’ébullition et de l’houblonnage.<br>
+                  Là, on joue avec les saveurs et les arômes, on ajoute la petite touche qui fera vibrer les papilles.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="zyth-feature-center">
+            <img src="la-doncourt-blondinette.png" class="zyth-bottle-feature" alt="Bouteille Zythomaniacs La Doncourt Blondinette, bière blonde artisanale">
+          </div>
+          <div class="zyth-feature-col">
+            <div class="zyth-feature-card" tabindex="0">
+              <div class="zyth-feature-icon" aria-hidden="true">🌾</div>
+              <div>
+                <div class="zyth-feature-title">Le Concassage</div>
+                <div class="zyth-feature-desc">
+                  Le voyage démarre par le concassage du malt — la première étape du rituel, où chaque grain libère son potentiel.<br>
+                  La suite&nbsp;? Un ballet de températures, une alchimie patiente où l’amidon se transforme en sucre, créant la future personnalité de la bière&nbsp;: ronde, sèche, limpide, ou bien trouble et mystérieuse.
+                </div>
+              </div>
+            </div>
+            <div class="zyth-feature-card" tabindex="0">
+              <div class="zyth-feature-icon" aria-hidden="true">✨</div>
+              <div>
+                <div class="zyth-feature-title">Partage &amp; Modernité</div>
+                <div class="zyth-feature-desc">
+                  Chez Zythomaniacs, chaque cuvée est une nouvelle odyssée, et chaque dégustation, une escale à partager.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-
-  <main class="container">
-    <section class="odyssee-highlights">
-      <!-- ... the rest of your content ... -->
     </section>
   </main>
 </body>
