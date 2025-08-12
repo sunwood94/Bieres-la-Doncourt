@@ -51,70 +51,61 @@
     </div>
   </section>
 
-  <!-- Merged Bières & Shop Section (Stacked full-width product blocks) -->
+  <!-- Bières & Shop Section with Product Cards -->
   <section id="beershop" class="beershop">
     <div class="container">
       <h2>Nos Bières & E-Shop</h2>
-      <div class="product-feature">
-        <img src="IPA-product.png" alt="La Doncourt IPA">
-        <div class="product-details">
+      <div class="beer-shop-grid">
+        <div class="beer-shop-card" onclick="openProductModal(0)" style="cursor:pointer;">
+          <img src="IPA-product.png" alt="La Doncourt IPA">
           <h3>La Doncourt IPA</h3>
           <p>
             Notre IPA associe une robe cuivrée intense à un taux d'alcool modéré (6,5%). Sa mousse est abondante et persistante.<br>
-            Elle s’apprécie d’abord au nez par le développement puissant d’arômes fruités et de fleurs. Passés les premiers arômes fleuris, elle dérive progressivement vers une amertume soutenue qui persistera longtemps en bouche.<br>
-            <b>Disponible en 33cl ou 75cl.</b>
+            Amertume soutenue, arômes fruités et floraux.<br>
+            <b>33cl ou 75cl</b>
           </p>
           <div class="price">4.00 €</div>
-          <button onclick="openProductModal(0)">Acheter</button>
+          <button onclick="event.stopPropagation(); openProductModal(0);">Acheter</button>
         </div>
-      </div>
-      <div class="product-feature">
-        <img src="BLANCHE-product.png" alt="La Doncourt Blanche">
-        <div class="product-details">
+        <div class="beer-shop-card" onclick="openProductModal(1)" style="cursor:pointer;">
+          <img src="BLANCHE-product.png" alt="La Doncourt Blanche">
           <h3>La Doncourt Blanche</h3>
           <p>
-            Notre blanche se caractérise par une robe mimosa pâle naturellement troublée grâce à l’emploi de malt de froment.<br>
-            Légère, désaltérante, elle associe un subtil goût d’agrumes (citron, orange, pamplemousse) et de coriandre. Faible taux d’alcool (5,2%).<br>
-            <b>Disponible en 33cl ou 75cl.</b>
+            Robe mimosa pâle, trouble grâce au malt de froment. Désaltérante, légère, agrumes & coriandre.<br>
+            <b>33cl ou 75cl</b>
           </p>
           <div class="price">3.70 €</div>
-          <button onclick="openProductModal(1)">Acheter</button>
+          <button onclick="event.stopPropagation(); openProductModal(1);">Acheter</button>
         </div>
-      </div>
-      <div class="product-feature">
-        <img src="BLONDINETTE-product.png" alt="La Doncourt Blondinette">
-        <div class="product-details">
+        <div class="beer-shop-card" onclick="openProductModal(2)" style="cursor:pointer;">
+          <img src="BLONDINETTE-product.png" alt="La Doncourt Blondinette">
           <h3>La Doncourt Blondinette</h3>
           <p>
-            D'un agréable jaune d'or, notre blondinette titre 5,2% d’alcool. Sèche et légèrement amère, elle révèle des saveurs plaisantes de malt ainsi qu’une pointe d'acidité.<br>
-            <b>Disponible en 33cl ou 75cl.</b>
+            Jaune d'or, sèche et légèrement amère. Saveurs maltées, pointe d'acidité.<br>
+            <b>33cl ou 75cl</b>
           </p>
           <div class="price">3.70 €</div>
-          <button onclick="openProductModal(2)">Acheter</button>
+          <button onclick="event.stopPropagation(); openProductModal(2);">Acheter</button>
         </div>
-      </div>
-      <div class="product-feature">
-        <img src="TRIPLE-BLONDE-product.png" alt="La Doncourt Triple Blonde">
-        <div class="product-details">
+        <div class="beer-shop-card" onclick="openProductModal(3)" style="cursor:pointer;">
+          <img src="TRIPLE-BLONDE-product.png" alt="La Doncourt Triple Blonde">
           <h3>La Doncourt Triple Blonde</h3>
           <p>
-            Notre triple blonde est une bière complexe et bien trempée, dotée d’une robe miel. Elle développe en bouche une légère amertume ainsi que des arômes d’agrumes et de bois. Taux d'alcool de 8%.<br>
-            <b>Disponible en 33cl ou 75cl.</b>
+            Robe miel, arômes d’agrumes et de bois, légère amertume, 8% alc.<br>
+            <b>33cl ou 75cl</b>
           </p>
           <div class="price">4.50 €</div>
-          <button onclick="openProductModal(3)">Acheter</button>
+          <button onclick="event.stopPropagation(); openProductModal(3);">Acheter</button>
         </div>
-      </div>
-      <div class="product-feature">
-        <img src="TRIPLE-DARK-product.png" alt="La Doncourt Triple Dark">
-        <div class="product-details">
+        <div class="beer-shop-card" onclick="openProductModal(4)" style="cursor:pointer;">
+          <img src="TRIPLE-DARK-product.png" alt="La Doncourt Triple Dark">
           <h3>La Doncourt Triple Dark</h3>
           <p>
-            La robe de notre Triple Dark est d’un sombre profond. Grâce aux grains torréfiés, elle mélange des arômes de cacao, de caramel et de café. 8% d’alcool, ronde en bouche et peu amère.<br>
-            <b>Disponible en 33cl ou 75cl.</b>
+            Robe sombre, arômes cacao, caramel, café. 8% alc., ronde, peu amère.<br>
+            <b>33cl ou 75cl</b>
           </p>
           <div class="price">4.50 €</div>
-          <button onclick="openProductModal(4)">Acheter</button>
+          <button onclick="event.stopPropagation(); openProductModal(4);">Acheter</button>
         </div>
       </div>
     </div>
